@@ -1,0 +1,137 @@
+/* pages/login/login.wxss */
+.button{
+  color:grey;
+  text-decoration: underline;
+  float: left;
+}
+view{
+  width: 80%;
+  align-content: center;
+  /* border-color: greenyellow;
+  border-width: 2px;
+  border-style: solid; */
+}
+.welcome{
+  width: 100%;
+  position: absolute;
+  align-content: center;
+  left: 10%;
+  top: 20%;
+}
+.loginform{
+  width: 100%;
+  position: absolute;
+  align-content: center;
+  left: 10%;
+  top: 30%;
+}
+.othertext{
+  width: 60%;
+  position: absolute;
+  align-content: center;
+  left: 20%;
+  top: 49%;
+  /* border-color: blueviolet;
+  border-style: solid;
+  border-width: 2px; */
+}
+.season{
+  width: 350px;
+  height: 160px;
+  transform: translateX(2%);
+}
+.logo{
+  position: absolute;
+  width: 220px;
+  height: 150px;
+  top: 60%;
+  transform:translateX(37%);
+}
+.contents{
+  width: 100%;
+  position: absolute;
+  align-content: center;
+  bottom: 15%;
+  /* border-width: 2px;
+  border-color: red;
+  border-style: solid; */
+}
+.comment{
+  position: absolute;
+  color: grey;
+  left: 58%;
+}
+.left{
+  position: absolute;
+  left: 14%;
+}
+.rght{
+  position: absolute;
+  left: 36%;
+}
+h1{
+  width: 60%;
+  position: sticky;
+  left: 12%;
+  text-align: center;
+  font-size: 20px;
+}
+input {
+  width: 55%;
+  height: 25px;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+}
+.upper{
+  position: absolute;
+  top: 1px;
+  right: 25%;
+}
+.lower{
+  position: absolute;
+  top: 38px;
+  right: 25%;
+}
+p{
+  font-size: 17px;
+}
+.upperp{
+  position: absolute;
+  top: 2px;
+  left: 6%;
+}
+.lowerp{
+  position: absolute;
+  top: 39px;
+  left: 6%;
+}
+.main_button{
+  width:80%;
+  top: 82px;
+  position: relative;
+}
+.alert{
+  color: red;
+}
+.alertteamname{
+  position: relative;
+  align-content: center;
+  /* border-color: red;
+  border-width: 2px;
+  border-style: solid; */
+  text-align: center;
+  width: 98%;
+}
+.alertpassword{
+  position: relative;
+  align-content: center;
+  /* border-color: red;
+  border-width: 2px;
+  border-style: solid; */
+  text-align: center;
+  width: 98%;
+}
+.bold{
+  font-weight: bold;
+}

@@ -1,0 +1,40 @@
+<!--pages/login/login.wxml-->
+<view>
+  <image src="C:/Users/Administer/WeChatProjects/miniprogram-2/images/rapidreact.png" class="season"></image>
+</view>
+<view class="welcome">
+<view><h1>欢迎来到FRC赛场数据收集系统！</h1></view>
+<view><h1>公测期间限时  </h1><h1 class="bold">免密登录 </h1><h1> --8811</h1></view>
+<!-- <view><h1>请输入以下信息完成登录：</h1></view> -->
+</view>
+<view class="loginform">
+<form id="TeamLogin" catchsubmit="check_login">
+<view>
+  <view><p class="upperp">队号</p></view>
+  <view><input type="number" name="teamname" class="upper" value="{{teamname}}" placeholder="例如：8811"/></view>
+</view>
+<view>
+  <view><p class="lowerp">密码</p></view>
+  <view><input type="safe-password" name="password" class="lower" value="{{password}}" placeholder="联系我们以获取"/></view>
+</view>
+<view class="main_button">
+<!-- <navigator url="../count/count"> -->
+  <button form-type="submit" type="primary">登录</button>
+<!-- </navigator> -->
+</view>
+</form>
+</view>
+<view class="othertext">
+  <view wx:if="{{alertteam}}" class="alertteamname"><text class="alert">该队号未在此系统注册</text></view>
+  <view wx:if="{{alertpass}}" class="alertpassword"><text class="alert">密码输入错误，请重试</text></view>
+  <text>出品：FRC8811-义忠仁团队\n</text>  
+  <text>研发：FRC8811-义忠仁团队\n</text>
+</view>
+<view>
+  <image src="..../images/logo8811.png" class="logo" wx:if="true"></image>
+</view>
+<view class="contents">
+  <view class="button left"><navigator url="../dialog/dialog">更新日志</navigator></view>
+  <view class="button rght"><navigator url="../contact/contact">联系我们</navigator></view>
+  <view class="comment"><text>版本号: V1.0.1</text></view>
+</view>

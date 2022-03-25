@@ -1,0 +1,139 @@
+<!--pages/count/count.wxml-->
+<view class="tytle" style="font-size:25px;text-align:center;width:100%;font-weight:bold;">
+<text>FRC2022赛场数据收集系统</text>
+</view>
+<form action="aftersubmit" catchsubmit="SubmitAndUpload" catchreset="ResetAndReset">
+  <view class="basinfo flex" style="border-color:black;border-width:2px;border-style:black;">
+  <view style="text-align:center;font-size:20px;">
+  基本信息
+  </view>
+  <view class="row">
+  <view style="position:relative;left:8px;">
+  <view class="row" style="position:relative;top:8px;">
+    <text>队号</text>
+    <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="teamnum"/>
+  </view>
+  <view class="row" style="position:relative;top:8px;">
+    <text>记录</text>
+    <input type="text" class="textholder" placeholder="记录员" style="width:80px;position:relative;left:7px;top:1px;" name="whorecord"/>
+  </view>
+  <view class="row" style="position:relative;top:8px;">
+    <text>场次</text>
+    <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="match"/>
+  </view>
+  </view>
+  <view class="row" style="position:relative;left:8px;">
+    <radio-group bindchange="radioChange" name="match_type">
+    <view class="flex" style="position:relative;top:4px;left:10px">
+      <text style="text-align:center;">比赛类型</text>
+      <radio value="练习赛">练习赛</radio>
+      <radio value="资格赛">资格赛</radio>
+      <radio value="淘汰赛">淘汰赛</radio>
+    </view>
+    </radio-group>
+  </view>
+  <view style="position:relative;left:18px;">
+    <radio-group bindchange="radioChange" name="team_role">
+      <view style="text-align:center;">队伍角色</view>
+      <view>
+        <radio color="blue" value="b1">blue1</radio>
+        <radio color="red" value="r1" style="left:4px;">red1</radio>
+      </view>
+      <view>
+        <radio color="blue" value="b2">blue2</radio>
+        <radio color="red" value="r2" style="left:4px;">red2</radio>
+      </view>
+      <view>
+        <radio color="blue" value="b3">blue3</radio>
+        <radio color="red" value="r3" style="left:4px;">red3</radio>
+      </view>
+    </radio-group>
+  </view>
+  </view>
+  </view>
+  <view class="autoset flex" style="border-color:black;border-width:2px;border-style:black;position:relative;top:2px;">
+  <view style="text-align:center;font-size:20px;">
+  <!-- <text> -->
+  自动阶段
+  <!-- </text> -->
+  </view>
+  <view class="row">
+    <view class="row"  style="position:relative;left:10px;width:100px;">
+      <text style="position:relative;left:10px;top:22px;">过线</text>
+      <switch name="white_line" style="position:relative;top:18px;left:16px;"></switch>
+    </view>
+    <view class="row" style="position:relative;left:4%">
+      <view class="flex" style="position:relative;top:12px;">
+        <text>低球数量</text>
+        <view style="text-align:center;" class="bold">{{auto_shoot_lower}}</view>
+      </view>
+      <view class="flex">
+        <button size="mini" type="default" bindtap="auto_lower_add">+</button>
+        <button size="mini" type="default" bindtap="auto_lower_min">-</button>
+      </view>
+    </view>
+    <view class="row" style="position:relative;left:4%">
+      <view class="flex" style="position:relative;top:12px;">
+        <text>高球数量</text>
+        <view style="text-align:center;" class="bold">{{auto_shoot_upper}}</view>
+      </view>
+      <view class="flex">
+        <button size="mini" type="default" bindtap="auto_upper_add">+</button>
+        <button size="mini" type="default" bindtap="auto_upper_min">-</button>
+      </view>
+    </view>    
+  </view>
+  </view>
+  <view class="teleset flex" style="border-color:black;border-width:2px;border-style:black;position:relative;top:4px;">
+  <view style="text-align:center;font-size:20px;">
+  手动阶段
+  </view>
+  <view class="row">
+    <view class="row" style="position:relative;left:5px">
+      <view class="flex" style="position:relative;top:3px;width:60px">
+        <text style="width:70px;">回航站楼取球次数</text>
+        <view style="text-align:center;" class="bold">{{tele_jikuu_times}}</view>
+      </view>
+      <view class="flex">
+        <button size="mini" type="default" bindtap="tele_jikuu_add">+</button>
+        <button size="mini" type="default" bindtap="tele_jikuu_min">-</button>
+      </view>
+    </view>
+    <view class="row" style="position:relative;left:0%">
+      <view class="flex" style="position:relative;top:12px;">
+        <text>低球数量</text>
+        <view style="text-align:center;" class="bold">{{tele_shoot_lower}}</view>
+      </view>
+      <view class="flex">
+        <button size="mini" type="default" bindtap="tele_lower_add">+</button>
+        <button size="mini" type="default" bindtap="tele_lower_min">-</button>
+      </view>
+    </view>
+    <view class="row" style="position:relative;left:0%">
+      <view class="flex" style="position:relative;top:12px;">
+        <text>高球数量</text>
+        <view style="text-align:center;" class="bold">{{tele_shoot_upper}}</view>
+      </view>
+      <view class="flex">
+        <button size="mini" type="default" bindtap="tele_upper_add">+</button>
+        <button size="mini" type="default" bindtap="tele_upper_min">-</button>
+      </view>
+    </view>  
+  </view>
+  <view class="lastset">
+  </view>
+    <view class="climb row">
+      <text style="position:relative;left:5px;top:6px;">爬升</text>
+      <slider min="0" max="4" step="1" show-value="true" name="climb" style="position:relative;left:10px;width:80%" class="bold"></slider>
+    </view></view>
+  <view class="finish">
+    <view class="othertext row">
+      <text style="position:relative;left:5px;top:20px;font-size:20px;">概述</text>
+      <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
+    </view>
+    <view class="button" style="flex-direction:row;">
+      <button form-type="submit" type="primary" class="buttonleft">上传</button>
+      <button form-type="reset" type="default" class="buttonrght">重置</button>
+    </view>
+  </view>
+</form>

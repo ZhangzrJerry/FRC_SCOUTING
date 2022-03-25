@@ -1,0 +1,20 @@
+<!--pages/upload/upload.wxml-->
+<view>上传成功</view>
+<button bindtap="tobrowse">去查看</button>
+<view style="position:absolute;top:6%;width: 100%;">
+  <view style="width: 80%;position: absolute; top:50px;left:10%;border: 2px solid gray;text-align: center;align-content: center;height: 320px;">
+  </view>
+  <text style="position: relative;left: 11%;font-weight: bold;">
+  字典序/JSON格式/CSV格式
+  </text>
+    <text style="position: absolute;top: 0px; text-align: center; width: 75%;left: 12.5%;top: 38px;">
+      {{aftertrans_json}}
+    </text>
+    <button bindtap="copytext" type="primary" size="default" style="width:75%;position: relative;top:345px;">将JSON格式复制到剪贴板</button>
+    <view  style="position:relative;top:360px;left:12.5%;">
+    <button bindtap="copycsv" type="primary" size="mini" style="width:35%; height: 65px;">将CSV格式复制到剪贴板</button>
+    <button bindtap="copycsvheader" type="default" size="mini" style="width: 35%;left:5%;height: 65px;">将CSV表头复制到剪贴板</button>
+    </view>
+</view>
+
+

@@ -1,0 +1,14 @@
+<!--pages/contact/contact.wxml-->
+<h1>联系我们</h1>
+<view>
+  <text>
+    队伍QQ：
+    3576840178
+  </text>
+</view>
+<view>
+  <text>
+    队伍邮箱：
+    3576840178@qq.com
+  </text>
+</view>

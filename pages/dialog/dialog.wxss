@@ -1,0 +1,22 @@
+/* pages/log/log.wxss */
+h1{
+  color: black;
+  position: relative;
+  text-align: center;
+  font-size: 23px;
+  align-content: center;
+  left: 13px;
+}
+view{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  top: 20px;
+}
+h6{
+  font-weight: bold;
+}
+text{
+  width: 100%;
+}

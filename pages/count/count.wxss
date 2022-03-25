@@ -1,0 +1,32 @@
+/* pages/count/count.wxss */
+.textholder{
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+.buttonrght{
+  position: absolute;
+  bottom: 5%;
+  right: 0px;
+}
+.buttonleft{
+  position: absolute;
+  bottom: 5%;
+  left: 0px;
+}
+view{
+  border-color:white;
+  border-style: solid;
+  border-width:2px;
+}
+.basinfo,.row{
+  display: flex;
+  flex-direction: row;
+}
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+.bold{
+  font-weight: bold;
+}

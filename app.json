@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/dialog/dialog",
+    "pages/contact/contact",
+    "pages/count/count",
+    "pages/upload/upload",
+    "pages/contrast/contrast",
+    "pages/browse/browse",
+    "pages/info/info",
+    "pages/simulate/simulate"
+  ],
+  "tabBar": {
+    "selectedColor": "green",
+    "backgroundColor": "white",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/simulate/simulate",
+        "text": "Simulate",
+        "iconPath": "/images/simulate1.png",
+        "selectedIconPath": "/images/simulate2.png"
+      },
+      {
+        "pagePath": "pages/contrast/contrast",
+        "text": "Contrast",
+        "iconPath": "/images/contrast1.png",
+        "selectedIconPath": "/images/contrast2.png"
+      },
+      {
+        "pagePath": "pages/count/count",
+        "text": "Scout",
+        "iconPath": "/images/scout1.png",
+        "selectedIconPath": "/images/scout2.png"
+      },
+      {
+        "pagePath": "pages/browse/browse",
+        "text": "Browse",
+        "iconPath": "/images/browse1.png",
+        "selectedIconPath": "/images/browse2.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "Info",
+        "iconPath": "/images/info1.png",
+        "selectedIconPath": "/images/info2.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

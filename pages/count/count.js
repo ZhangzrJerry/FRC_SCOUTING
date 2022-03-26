@@ -156,6 +156,10 @@ Page({
       last_climb_stair:e.detail.value.climb,
       othertext:e.detail.value.othertext,
     })
+    wx.setStorage({
+      key:"whichmatch",
+      value:this.data.match_code
+    })
     console.log(e)
     console.log(this.data)
     var teamname = "0"

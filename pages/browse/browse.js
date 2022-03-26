@@ -10,13 +10,16 @@ Page({
     zstatus:true,
     // teamnum:0,
     teaminput:"",
+    matchcode:"",
+    // storage:{a:{},b:{}},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // const db = wx.cloud.database()
+    // db.watch()
   },
 
   /**
@@ -77,18 +80,35 @@ Page({
       qstatus:true,
       zstatus:true,
       teaminput:"",
+      matchcode:"",
     })
     this.search(true,0)
   },
-
+  print:function(){
+    // console.log(this.data.storage)
+    wx.getStorage({
+      key:"browse",
+      success:function(res){
+        console.log(res.data)
+      }
+    })
+  },
   filter:function(event){
     console.log(event)
     // console.log(event.detail.value.targetteam)
-    if(event.detail.value.targetteam){
-      this.search(false,event.detail.value.targetteam)
+    if((event.detail.value.targetteam!="") && (event.detail.value.matchcode!="")){
+      this.search(0,event.detail.value.targetteam,event.detail.value.matchcode)
+      console.log("querytype:0")
+    }else{if(event.detail.value.targetteam!=""){
+      this.search(1,event.detail.value.targetteam,0)
+      console.log("querytype:1")
+    }else{if(event.detail.value.matchcode!=""){
+      this.search(2,0,event.detail.value.matchcode)
+      console.log("querytype:2")
     }else{
-      this.search(true,0)
-    }
+      this.search(3,0,0)
+      console.log("querytype:3")
+    }}}
   },
   
   echange:function(){
@@ -108,31 +128,81 @@ Page({
   },
 
   //搜索(按钮的逻辑只放在是否显示，不参加搜索)
-  search:function(searchtype,targetteam){
+  search:function(searchtype,targetteam,match_code){
     console.log("正在检索")
     const db = wx.cloud.database()
     const _ = db.command
     var teamname="0"
+    var formatch="0"
     wx.getStorage({
       key:"teamname",
       success:function(res){
         teamname = toString(res.data)
       }
     })
+    wx.getStorage({
+      key:"whichmatch",
+      success:function(res){
+        formatch = toString(res.data)
+      }
+    })
+    switch(searchtype){
+      case 0:
+        db.collection(teamname).where({
+          team_number:targetteam,
+          match_code:match_code
+        }).get({
+          success:function(res){
+            console.log(res)
+           wx.setStorage({
+              key:"browse",
+              data:res.data
+            })
+          }
+        })
+        break
+      case 1:
+        db.collection(teamname).where({
+          team_number:targetteam
+        }).get({
+          success:function(res){
+            console.log(res)
+           wx.setStorage({
+              key:"browse",
+              data:res.data
+            })
+          }
+        })
+        break
+      case 2:
+        db.collection(teamname).where({
+          match_code:match_code
+        }).get({
+          success:function(res){
+            console.log(res)
+           wx.setStorage({
+              key:"browse",
+              data:res.data
+            })
+          }
+        })
+        break
+      case 3:
+        db.collection(teamname).where({
+          match_code:formatch
+        }).get({
+          success:function(res){
+            console.log(res)
+           wx.setStorage({
+              key:"browse",
+              data:res.data
+            })
+          }
+        })
+        break
+    }
     if(searchtype){
-      db.collection(teamname).get({
-        success:function(res){
-          console.log(res)
-        }
-      })
     }else{
-      db.collection(teamname).where({
-        team_number:targetteam
-      }).get({
-        success:function(res){
-          console.log(res)
-        }
-      })
     }
   },
 

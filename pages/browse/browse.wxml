@@ -3,6 +3,7 @@
 <view style="border: 2px solid purple">
   <form catchsubmit="filter" catchreset="reset">
     <input type="number" name="targetteam" value="{{teaminput}}" style="border: 2px solid grey;"/>
+    <input type="number" name="matchcode" value="{{matchcode}}" style="border: 2px solid grey;"/>
     <!-- 别问我怎么想的value名字 -->
     <radio value="e" checked="{{estatus}}" bindtap="echange">练习赛</radio>
     <radio value="q" checked="{{qstatus}}" bindtap="qchange">资格赛</radio>
@@ -11,5 +12,5 @@
     <button form-type="reset" size="mini">重置</button>
   </form>
 </view>
-
+<button bindtap="print">test</button>
 <button bindtap="cdb2excel">下载excel</button>

@@ -7,6 +7,6 @@
   </view>
   <view class="same">
     <input type="number" bindinput="getB"/>
-  </view> -->功能仍在开发
+  </view> -->功能正在开发，请耐心期待
 </view>
 

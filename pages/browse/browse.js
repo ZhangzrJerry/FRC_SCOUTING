@@ -99,7 +99,7 @@ Page({
               const xlsxpath = res.tempFilePath
               wx.showModal({
                 cancelColor: 'grey',
-                content:"是否打开好的Excel",
+                content:"是否打开下载好的Excel",
                 success:function(res){
                   if(res.confirm){
                     wx.openDocument({

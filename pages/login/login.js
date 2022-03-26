@@ -85,16 +85,6 @@ Page({
       alertteam:false,
       alertpass:false,
     })
-    wx.cloud.callFunction({
-      name:"LoginBoolean",
-      data:{
-        teamname:event.detail.value.teamname,
-        password:event.detail.value.password,
-      },
-      complete:res=>{
-        console.log("cloudcallfunction",res)
-      }
-    })
     const db = wx.cloud.database()
     db.collection("userset").doc(event.detail.value.teamname).get({
       success:function(res){

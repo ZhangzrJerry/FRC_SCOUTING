@@ -157,6 +157,32 @@ Page({
     })
     console.log(e)
     console.log(this.data)
+    var teamname = "0"
+    wx.getStorage({
+      key:"teamname",
+      success:function(res){
+        teamname = toString(res.data)
+      }
+    })
+    console.log(teamname)
+    const db = wx.cloud.database()
+    db.collection(teamname).add({
+      data:{ 
+        team_number:this.data.team_number,
+        team_role:this.data.team_role,
+        who_record:this.data.who_record,
+        match_type:this.data.match_type,
+        match_code:this.data.match_code,
+        auto_shoot_upper:this.data.auto_shoot_upper,
+        auto_shoot_lower:this.data.auto_shoot_lower,
+        auto_if_out_line:this.data.auto_if_out_line,
+        tele_shoot_upper:this.data.tele_shoot_upper,
+        tele_shoot_lower:this.data.tele_shoot_lower,
+        tele_jikuu_times:this.data.tele_jikuu_times,
+        last_climb_stair:this.data.last_climb_stair,
+        othertext:this.data.othertext,
+      }
+    })
     var trans = "../upload/upload?"
     var x=["比赛类型","比赛场次","队伍角色","队号","自动阶段白线","自动阶段低球","自动阶段高球","手动阶段航站楼次数","手动阶段低球","手动阶段高球","爬升横档数","概述","记录员"]
     var y=[this.data.match_type,this.data.match_code,this.data.team_role,this.data.team_number,this.data.auto_if_out_line,this.data.auto_shoot_lower,this.data.auto_shoot_upper,this.data.tele_jikuu_times,this.data.tele_shoot_lower,this.data.tele_shoot_upper,this.data.last_climb_stair,this.data.othertext,this.data.who_record]

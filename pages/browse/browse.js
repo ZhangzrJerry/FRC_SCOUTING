@@ -62,5 +62,26 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+    // 云数据库导入云端excel
+    cdb2excel: function () {
+      wx.cloud.callFunction({
+        name: 'CDB2excel',
+        success: res => {
+          wx.showToast({
+            title: '调用成功',
+          })
+          console.log(res)
+          
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '调用失败',
+          })
+          console.error('[云函数] 调用失败：', err)
+        }
+      })
+    }
+  
 })

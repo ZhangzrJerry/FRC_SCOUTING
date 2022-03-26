@@ -45,7 +45,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.18.0",
   "appid": "wxc145d2ede1e22a64",
-  "projectname": "test",
+  "projectname": "frcscout",
   "debugOptions": {
     "hidedInDevtools": []
   },

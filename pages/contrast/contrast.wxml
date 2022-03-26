@@ -1,2 +1,12 @@
 <!--contrast/contrast.wxml-->
-<text>contrast/contrast.wxml</text>
+<view class="biggest">
+<!-- 等我先学个自定义组件再来 -->
+  <!-- <view class="same">
+    <input type="number" bindinput="getA"/>
+    <view>{{}}</view>
+  </view>
+  <view class="same">
+    <input type="number" bindinput="getB"/>
+  </view> -->功能仍在开发
+</view>
+

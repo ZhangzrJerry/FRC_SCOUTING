@@ -18,6 +18,7 @@ Page({
     tele_jikuu_times:0,
     last_climb_stair:0,
     othertext:"",
+    winorloss:"",
   },
 
   /**
@@ -181,11 +182,12 @@ Page({
         tele_jikuu_times:this.data.tele_jikuu_times,
         last_climb_stair:this.data.last_climb_stair,
         othertext:this.data.othertext,
+        winorloss:this.data.winorloss,
       }
     })
     var trans = "../upload/upload?"
-    var x=["比赛类型","比赛场次","队伍角色","队号","自动阶段白线","自动阶段低球","自动阶段高球","手动阶段航站楼次数","手动阶段低球","手动阶段高球","爬升横档数","概述","记录员"]
-    var y=[this.data.match_type,this.data.match_code,this.data.team_role,this.data.team_number,this.data.auto_if_out_line,this.data.auto_shoot_lower,this.data.auto_shoot_upper,this.data.tele_jikuu_times,this.data.tele_shoot_lower,this.data.tele_shoot_upper,this.data.last_climb_stair,this.data.othertext,this.data.who_record]
+    var x=["比赛类型","比赛场次","队伍角色","队号","自动阶段白线","自动阶段低球","自动阶段高球","手动阶段航站楼次数","手动阶段低球","手动阶段高球","爬升横档数","概述","记录员","胜负"]
+    var y=[this.data.match_type,this.data.match_code,this.data.team_role,this.data.team_number,this.data.auto_if_out_line,this.data.auto_shoot_lower,this.data.auto_shoot_upper,this.data.tele_jikuu_times,this.data.tele_shoot_lower,this.data.tele_shoot_upper,this.data.last_climb_stair,this.data.othertext,this.data.who_record,this.data.winorloss]
     for(var i=0;i<x.length;i=i+1){
       trans=trans+x[i]+"="+y[i]+"&"
     }

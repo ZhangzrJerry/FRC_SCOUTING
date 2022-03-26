@@ -1,1 +1,13 @@
 /* contrast/contrast.wxss */
+input{
+  border-color: grey;
+  border-width: 2px;
+  border-style: solid;
+}
+.biggest{
+  flex-direction: row;
+  display: flex;
+}
+.same{
+  width: 50%;
+}

@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    estatus:true,
+    qstatus:true,
+    zstatus:true,
+    // teamnum:0,
+    teaminput:"",
   },
 
   /**
@@ -63,6 +67,76 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  // ResetAndReset:function(){
+  // },
+
+  reset:function(){
+    this.setData({
+      estatus:true,
+      qstatus:true,
+      zstatus:true,
+      teaminput:"",
+    })
+    this.search(true,0)
+  },
+
+  filter:function(event){
+    console.log(event)
+    // console.log(event.detail.value.targetteam)
+    if(event.detail.value.targetteam){
+      this.search(false,event.detail.value.targetteam)
+    }else{
+      this.search(true,0)
+    }
+  },
+  
+  echange:function(){
+    this.setData({
+      estatus:!this.data.estatus
+    })
+  },
+  qchange:function(){
+    this.setData({
+      qstatus:!this.data.qstatus
+    })
+  },
+  zchange:function(){
+    this.setData({
+      zstatus:!this.data.zstatus
+    })
+  },
+
+  //搜索(按钮的逻辑只放在是否显示，不参加搜索)
+  search:function(searchtype,targetteam){
+    console.log("正在检索")
+    const db = wx.cloud.database()
+    const _ = db.command
+    var teamname="0"
+    wx.getStorage({
+      key:"teamname",
+      success:function(res){
+        teamname = toString(res.data)
+      }
+    })
+    if(searchtype){
+      db.collection(teamname).get({
+        success:function(res){
+          console.log(res)
+        }
+      })
+    }else{
+      db.collection(teamname).where({
+        team_number:targetteam
+      }).get({
+        success:function(res){
+          console.log(res)
+        }
+      })
+    }
+  },
+
+
     // 云数据库导入云端excel
     cdb2excel: function () {
       var teamname="0"

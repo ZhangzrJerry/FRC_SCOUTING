@@ -131,6 +131,8 @@
       <text style="position:relative;left:5px;top:20px;font-size:20px;">概述</text>
       <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
     </view>
+    <!-- 尚未有后台关于选中与否的逻辑，也可以更改为像过线那样的按钮之类的 -->
+      <radio value="win">胜</radio>
     <view class="button" style="flex-direction:row;">
       <button form-type="submit" type="primary" class="buttonleft">上传</button>
       <button form-type="reset" type="default" class="buttonrght">重置</button>

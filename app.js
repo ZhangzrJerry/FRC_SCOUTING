@@ -20,7 +20,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
+    // userInfo: null,
     teamname: 0,
   }
 })

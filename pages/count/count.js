@@ -162,14 +162,16 @@ Page({
     })
     console.log(e)
     console.log(this.data)
-    var teamname = "0"
-    wx.getStorage({
-      key:"teamname",
-      success:function(res){
-        teamname = toString(res.data)
-      }
-    })
-    console.log(teamname)
+    // var teamname = "0"
+    // wx.getStorage({
+    //   key:"teamname",
+    //   success:function(res){
+    //     const teamname = res.data.toString()
+    //     console.log("teamname",teamname)
+    //   }
+    // })
+    // console.log(teamname)
+    var teamname = getApp().globalData.teamname
     const db = wx.cloud.database()
     db.collection(teamname).add({
       data:{ 

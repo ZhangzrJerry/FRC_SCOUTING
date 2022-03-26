@@ -8,7 +8,7 @@ Page({
     estatus:true,
     qstatus:true,
     zstatus:true,
-    // teamnum:0,
+    // teamname:"0",
     teaminput:"",
     matchcode:"",
     // storage:{a:{},b:{}},
@@ -33,7 +33,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // let teamname_local=0
+    // wx.getStorage({
+    //   key:"teamname",
+    //   success:function(res){
+    //     teamname_local = res.data.toString()
+    //   }
+    // })
+    // console.log("local",teamname_local)
+    // this.setData({
+    //   "teamname":teamname_local
+    // })
+    // console.log(this.data)
+    this.autostorage()
   },
 
   /**
@@ -47,7 +59,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
@@ -86,35 +97,8 @@ Page({
       teaminput:"",
       matchcode:"",
     })
-    this.search(true,0)
+    // this.search(true,0)
   },
-  print:function(){
-    // console.log(this.data.storage)
-    wx.getStorage({
-      key:"browse",
-      success:function(res){
-        console.log(res.data)
-      }
-    })
-  },
-  filter:function(event){
-    console.log(event)
-    // console.log(event.detail.value.targetteam)
-    if((event.detail.value.targetteam!="") && (event.detail.value.matchcode!="")){
-      this.search(0,event.detail.value.targetteam,event.detail.value.matchcode)
-      console.log("querytype:0")
-    }else{if(event.detail.value.targetteam!=""){
-      this.search(1,event.detail.value.targetteam,0)
-      console.log("querytype:1")
-    }else{if(event.detail.value.matchcode!=""){
-      this.search(2,0,event.detail.value.matchcode)
-      console.log("querytype:2")
-    }else{
-      this.search(3,0,0)
-      console.log("querytype:3")
-    }}}
-  },
-  
   echange:function(){
     this.setData({
       estatus:!this.data.estatus
@@ -130,100 +114,124 @@ Page({
       zstatus:!this.data.zstatus
     })
   },
+  // print:function(){
+  //   // console.log(this.data.storage)
+  //   wx.getStorage({
+  //     key:"browse",
+  //     success:function(res){
+  //       console.log(res.data)
+  //     }
+  //   })
+  // },
+  // filter:function(event){
+  //   console.log(event)
+  //   // console.log(event.detail.value.targetteam)
+  //   if((event.detail.value.targetteam!="") && (event.detail.value.matchcode!="")){
+  //     this.search(0,event.detail.value.targetteam,event.detail.value.matchcode)
+  //     console.log("querytype:0")
+  //   }else{if(event.detail.value.targetteam!=""){
+  //     this.search(1,event.detail.value.targetteam,0)
+  //     console.log("querytype:1")
+  //   }else{if(event.detail.value.matchcode!=""){
+  //     this.search(2,0,event.detail.value.matchcode)
+  //     console.log("querytype:2")
+  //   }else{
+  //     this.search(3,0,0)
+  //     console.log("querytype:3")
+  //   }}}
+  // },
+  
 
-  //搜索(按钮的逻辑只放在是否显示，不参加搜索)
-  search:function(searchtype,targetteam,match_code){
-    console.log("正在检索")
-    const db = wx.cloud.database()
-    const _ = db.command
-    var teamname="0"
-    var formatch="0"
-    wx.getStorage({
-      key:"teamname",
-      success:function(res){
-        teamname = toString(res.data)
-      }
-    })
-    wx.getStorage({
-      key:"whichmatch",
-      success:function(res){
-        formatch = toString(res.data)
-      }
-    })
-    switch(searchtype){
-      case 0:
-        db.collection(teamname).where({
-          team_number:targetteam,
-          match_code:match_code
-        }).get({
-          success:function(res){
-            console.log(res)
-           wx.setStorage({
-              key:"browse",
-              data:res.data
-            })
-          }
-        })
-        break
-      case 1:
-        db.collection(teamname).where({
-          team_number:targetteam
-        }).get({
-          success:function(res){
-            console.log(res)
-           wx.setStorage({
-              key:"browse",
-              data:res.data
-            })
-          }
-        })
-        break
-      case 2:
-        db.collection(teamname).where({
-          match_code:match_code
-        }).get({
-          success:function(res){
-            console.log(res)
-           wx.setStorage({
-              key:"browse",
-              data:res.data
-            })
-          }
-        })
-        break
-      case 3:
-        db.collection(teamname).where({
-          match_code:formatch
-        }).get({
-          success:function(res){
-            console.log(res)
-           wx.setStorage({
-              key:"browse",
-              data:res.data
-            })
-          }
-        })
-        break
-    }
-    if(searchtype){
-    }else{
-    }
-  },
+
+  // //搜索(按钮的逻辑只放在是否显示，不参加搜索)
+  // search:function(searchtype,targetteam,match_code){
+  //   console.log("正在检索")
+  //   const db = wx.cloud.database()
+  //   const _ = db.command
+  //   var teamname="0"
+  //   var formatch="0"
+  //   wx.getStorage({
+  //     key:"teamname",
+  //     success:function(res){
+  //       teamname = toString(res.data)
+  //     }
+  //   })
+  //   wx.getStorage({
+  //     key:"whichmatch",
+  //     success:function(res){
+  //       formatch = toString(res.data)
+  //     }
+  //   })
+  //   switch(searchtype){
+  //     case 0:
+  //       db.collection(teamname).where({
+  //         team_number:targetteam,
+  //         match_code:match_code
+  //       }).get({
+  //         success:function(res){
+  //           console.log(res)
+  //          wx.setStorage({
+  //             key:"browse",
+  //             data:res.data
+  //           })
+  //         }
+  //       })
+  //       break
+  //     case 1:
+  //       db.collection(teamname).where({
+  //         team_number:targetteam
+  //       }).get({
+  //         success:function(res){
+  //           console.log(res)
+  //          wx.setStorage({
+  //             key:"browse",
+  //             data:res.data
+  //           })
+  //         }
+  //       })
+  //       break
+  //     case 2:
+  //       db.collection(teamname).where({
+  //         match_code:match_code
+  //       }).get({
+  //         success:function(res){
+  //           console.log(res)
+  //          wx.setStorage({
+  //             key:"browse",
+  //             data:res.data
+  //           })
+  //         }
+  //       })
+  //       break
+  //     case 3:
+  //       db.collection(teamname).where({
+  //         match_code:formatch
+  //       }).get({
+  //         success:function(res){
+  //           console.log(res)
+  //          wx.setStorage({
+  //             key:"browse",
+  //             data:res.data
+  //           })
+  //         }
+  //       })
+  //       break
+  //   }
+  //   if(searchtype){
+  //   }else{
+  //   }
+  // },
 
 
     // 云数据库导入云端excel
     cdb2excel: function () {
-      var teamname="0"
-      wx.getStorage({
-        key:"teamname",
-        success:function(res){
-          teamname = toString(res.data)
-        }
-      })
+      
+      var teamname = getApp().globalData.teamname
       wx.cloud.callFunction({
         name: 'CDB2excel',
         data:{
-          "teamname":teamname
+          "teamname":teamname,
+          "CDBtype":true
         },
         success: res => {
           wx.showToast({
@@ -231,13 +239,6 @@ Page({
           })
           console.log(res)
           var xlsxurls = 'cloud://test-2022frc-6gat0cgc7b19be48.7465-test-2022frc-6gat0cgc7b19be48-1309958313/'
-          var teamname="0"
-          wx.getStorage({
-            key:"teamname",
-            success:function(res){
-              teamname = toString(res.data)
-            }
-          })
           xlsxurls = xlsxurls + teamname + ".xlsx"
           console.log("云存储地址",xlsxurls)
           wx.cloud.downloadFile({
@@ -256,7 +257,7 @@ Page({
                         console.log('打开文档成功')
                       },
                       fail: err => {
-                      console.log('打开文档失败')
+                        console.log('打开文档失败')
                       }
                     })
                   }
@@ -297,25 +298,43 @@ Page({
       //   }
       // })
     },
-    // openexcel:function(){
-    //   var excelpath = ""
-    //   wx.getStorage({
-    //     key:"xlsx_path",
-    //     success:function(res){
-    //       console.log("读取缓存地址成功",res.data)
-    //       excelpath = res.data
-    //     }
-    //   })
-    //   wx.openDocument({
-    //     filePath: excelpath,
-    //     success: function (){
-    //       console.log('打开文档成功')
-    //     },
-    //     fail:function(){
-    //       console.log("打开文档失败")
-    //     }
-    //   })
-    // }
+    refresh:function(){
+      this.autostorage()
+    },
+    autostorage:function(){
+      
+      var teamname = getApp().globalData.teamname
+      console.log("刷新数据")
+        wx.cloud.callFunction({
+          name: 'CDB2excel',
+          data:{
+            "teamname":teamname,
+            "CDBtype":false
+          },
+          success:function(res){
+            console.log("刷新成功",res.result.alldata)
+            wx.showToast({
+              title: '刷新成功',
+            })
+            wx.setStorage({
+              key:"browse",
+              data:res.result.alldata,
+              success:function(){
+                wx.getStorage({
+                  key:"browse",
+                  success:function(res){
+                    console.log("数据缓存成功",res.data)
+                  }
+                })
+              }
+            })
+          }
+      })
+    },
+    // },
+    refresh:function(){
+      this.autostorage()
+    }
     
     
 })

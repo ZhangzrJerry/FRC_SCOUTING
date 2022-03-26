@@ -10,7 +10,11 @@ Page({
     rgb: 'rgb(255,255,0)',
     pick: false
   },
-  
+  toClear:function(){
+    const ctx = wx.createCanvasContext('my-canvas')
+    ctx.clearRect(0, 0, 1500, 1000)
+    // console.log("a")
+  },
   toPick: function () {
     this.setData({
       pick: true

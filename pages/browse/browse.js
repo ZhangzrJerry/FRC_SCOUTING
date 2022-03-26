@@ -65,13 +65,47 @@ Page({
   },
     // 云数据库导入云端excel
     cdb2excel: function () {
+      var teamname="0"
+      wx.getStorage({
+        key:"teamname",
+        success:function(res){
+          teamname = toString(res.data)
+        }
+      })
       wx.cloud.callFunction({
         name: 'CDB2excel',
+        data:{
+          "teamname":teamname
+        },
         success: res => {
           wx.showToast({
             title: '调用成功',
           })
           console.log(res)
+          var xlsxurls = 'cloud://test-2022frc-6gat0cgc7b19be48.7465-test-2022frc-6gat0cgc7b19be48-1309958313/'
+          var teamname="0"
+          wx.getStorage({
+            key:"teamname",
+            success:function(res){
+              teamname = toString(res.data)
+            }
+          })
+          xlsxurls = xlsxurls + teamname
+          console.log("xlsx-online-url",xlsxurls)
+          wx.cloud.downloadFile({
+            fileID: xlsxurls,  // 填写云存储中的url
+            success: res => {
+              wx.openDocument({
+                filePath: res.tempFilePath ,
+                success: function (res){
+                  console.log('打开文档成功')
+                }
+              })
+            },
+            fail: err => {
+             console.log('打开文档失败')
+            }
+          })
           
         },
         fail: err => {
@@ -82,6 +116,22 @@ Page({
           console.error('[云函数] 调用失败：', err)
         }
       })
+      // var xlsxurls = 'cloud://test-2022frc-6gat0cgc7b19be48.7465-test-2022frc-6gat0cgc7b19be48-1309958313/'+teamname
+      // wx.cloud.downloadFile({
+      //   fileID: xlsxurls,  // 填写云存储中的url
+      //   success: res => {
+      //     wx.openDocument({
+      //       filePath: res.tempFilePath ,
+      //       success: function (res){
+      //         console.log('打开文档成功')
+      //       }
+      //     })
+      //   },
+      //   fail: err => {
+      //    console.log('打开文档失败')
+      //   }
+      // })
     }
-  
+    
+    
 })

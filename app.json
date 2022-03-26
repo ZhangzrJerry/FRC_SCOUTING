@@ -8,7 +8,8 @@
     "pages/contrast/contrast",
     "pages/browse/browse",
     "pages/info/info",
-    "pages/simulate/simulate"
+    "pages/simulate/simulate",
+    "pages/strategy/strategy"
   ],
   "tabBar": {
     "selectedColor": "green",
@@ -22,10 +23,8 @@
         "selectedIconPath": "/images/simulate2.png"
       },
       {
-        "pagePath": "pages/contrast/contrast",
-        "text": "Contrast",
-        "iconPath": "/images/contrast1.png",
-        "selectedIconPath": "/images/contrast2.png"
+        "pagePath": "pages/strategy/strategy",
+        "text": "Strategy"
       },
       {
         "pagePath": "pages/count/count",

@@ -1,0 +1,29 @@
+<!-- wxml布局 -->
+
+<canvas
+  class='canvas'
+  canvas-id='my-canvas' 
+  disable-scroll='{{true}}'
+  bindtouchstart='touchStart' 
+  bindtouchmove='touchMove'>
+</canvas>
+
+<!-- clear方法是擦除操作 -->
+<view class='rubber' bindtap='clear' hover-class='change'>
+  我是橡皮檫
+</view>
+<!-- 需要一个调整画笔粗细 -->
+<!-- 需要一个清空画布 -->
+<!-- 看看需不需要加些文本框来输入双方队号这样子 -->
+<!-- 应该可以再加个保存图片按钮把图片保存下来，方便复盘战术 -->
+<!--index.wxml-->
+<view>
+<!-- rgb预览器 -->
+  <view style="background:{{rgb}};" bindtap="toPick" class="color-block">{{rgb}}</view>
+<!-- color-picker是别人的自定义组件pickColor是接口方法 -->
+  <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
+</view>
+<!-- 可以把画布的位置设置在图片上这样子之类的 -->
+<image src="../../images/field.png"></image>
+
+<color-picker class="color-picker" colorData="{{colorData}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>

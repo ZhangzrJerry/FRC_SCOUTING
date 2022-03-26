@@ -1,6 +1,6 @@
 <!--pages/login/login.wxml-->
 <view>
-  <image src="C:/Users/Administer/WeChatProjects/miniprogram-2/images/rapidreact.png" class="season"></image>
+  <image src="../../images/rapidreact.png" class="season"></image>
 </view>
 <view class="welcome">
 <view><h1>欢迎来到FRC赛场数据收集系统！</h1></view>
@@ -31,7 +31,7 @@
   <text>研发：FRC8811-义忠仁团队\n</text>
 </view>
 <view>
-  <image src="..../images/logo8811.png" class="logo" wx:if="true"></image>
+  <image src="../../images/logo8811.png" class="logo" wx:if="true"></image>
 </view>
 <view class="contents">
   <view class="button left"><navigator url="../dialog/dialog">更新日志</navigator></view>

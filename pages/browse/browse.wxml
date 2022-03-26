@@ -11,6 +11,7 @@
     <button form-type="submit" size="mini">筛选</button>
     <button form-type="reset" size="mini">重置</button>
   </form>
+    <button size="mini" bindtap="skipcontrast">对比</button>
 </view>
 <button bindtap="print">test</button>
 <button bindtap="cdb2excel">下载excel</button>

@@ -73,7 +73,11 @@ Page({
 
   // ResetAndReset:function(){
   // },
-
+  skipcontrast:function(){
+    wx.navigateTo({
+      url: '../contrast/contrast',
+    })
+  },
   reset:function(){
     this.setData({
       estatus:true,

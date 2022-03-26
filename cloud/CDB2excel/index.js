@@ -26,7 +26,7 @@ exports.main = async (event, context) => {
   // 2.格式化数据
   let alldata = []
   let row = [
-    "team_number","team_role","who_record","match_type","match_code","auto_if_out_line","auto_shoot_lower","auto_shoot_upper","tele_jikuu_times","tele_shoot_lower","tele_shoot_upper","last_climb_stair","othertext"]
+    "match_type","match_code","team_number","team_role","auto_if_out_line","auto_shoot_lower","auto_shoot_upper","tele_jikuu_times","tele_shoot_lower","tele_shoot_upper","last_climb_stair","othertext","who_record"]
   alldata.push(row)  // 列名导入到数组中
   for(let i in jsonData){
     let newitem = []
@@ -41,7 +41,7 @@ exports.main = async (event, context) => {
     name: 'sheet',
     data: alldata
   }])
-  var xlsxname=event.teamname
+  var xlsxname=event.teamname+".xlsx"
   await cloud.uploadFile({
     cloudPath: xlsxname,
     fileContent: buffer, //excel二进制文件

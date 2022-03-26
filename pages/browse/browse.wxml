@@ -1,3 +1,2 @@
 <!--pages/browse/browse.wxml-->
-<text>pages/browse/browse.wxml</text>
 <button bindtap="cdb2excel">下载excel</button>

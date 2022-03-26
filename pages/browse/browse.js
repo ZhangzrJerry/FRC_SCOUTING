@@ -79,7 +79,7 @@ Page({
         },
         success: res => {
           wx.showToast({
-            title: '调用成功',
+            title: '下载成功',
           })
           console.log(res)
           var xlsxurls = 'cloud://test-2022frc-6gat0cgc7b19be48.7465-test-2022frc-6gat0cgc7b19be48-1309958313/'
@@ -90,20 +90,37 @@ Page({
               teamname = toString(res.data)
             }
           })
-          xlsxurls = xlsxurls + teamname
-          console.log("xlsx-online-url",xlsxurls)
+          xlsxurls = xlsxurls + teamname + ".xlsx"
+          console.log("云存储地址",xlsxurls)
           wx.cloud.downloadFile({
             fileID: xlsxurls,  // 填写云存储中的url
             success: res => {
-              wx.openDocument({
-                filePath: res.tempFilePath ,
-                success: function (res){
-                  console.log('打开文档成功')
+              console.log("下载成功",res.tempFilePath)
+              const xlsxpath = res.tempFilePath
+              wx.showModal({
+                cancelColor: 'grey',
+                content:"是否打开好的Excel",
+                success:function(res){
+                  if(res.confirm){
+                    wx.openDocument({
+                      filePath: xlsxpath,
+                      success: function (res){
+                        console.log('打开文档成功')
+                      },
+                      fail: err => {
+                      console.log('打开文档失败')
+                      }
+                    })
+                  }
                 }
               })
-            },
-            fail: err => {
-             console.log('打开文档失败')
+              // wx.setStorage({
+              //   key:"xlsx_path",
+              //   data:res.tempFilePath,
+              //   success:function(){
+              //     console.log("文件地址缓存成功")
+              //   }
+              // })
             }
           })
           
@@ -111,7 +128,7 @@ Page({
         fail: err => {
           wx.showToast({
             icon: 'none',
-            title: '调用失败',
+            title: '下载失败',
           })
           console.error('[云函数] 调用失败：', err)
         }
@@ -124,14 +141,33 @@ Page({
       //       filePath: res.tempFilePath ,
       //       success: function (res){
       //         console.log('打开文档成功')
-      //       }
-      //     })
-      //   },
+      //       },
       //   fail: err => {
       //    console.log('打开文档失败')
       //   }
+      //     })
+      //   }
       // })
-    }
+    },
+    // openexcel:function(){
+    //   var excelpath = ""
+    //   wx.getStorage({
+    //     key:"xlsx_path",
+    //     success:function(res){
+    //       console.log("读取缓存地址成功",res.data)
+    //       excelpath = res.data
+    //     }
+    //   })
+    //   wx.openDocument({
+    //     filePath: excelpath,
+    //     success: function (){
+    //       console.log('打开文档成功')
+    //     },
+    //     fail:function(){
+    //       console.log("打开文档失败")
+    //     }
+    //   })
+    // }
     
     
 })

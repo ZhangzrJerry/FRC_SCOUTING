@@ -6,7 +6,8 @@
   canvas-id='my-canvas' 
   disable-scroll='{{true}}'
   bindtouchstart='touchStart' 
-  bindtouchmove='touchMove'>
+  bindtouchmove='touchMove'
+  hidden="{{selecting}}">
 </canvas>
 <view class="lower row">
 <!-- clear方法是擦除操作 -->

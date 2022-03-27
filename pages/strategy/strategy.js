@@ -7,6 +7,7 @@ Page({
    */
   data: {
     isClear: false,
+    selecting:false,
     rgb: 'rgb(255,255,0)',
     pick: false
   },
@@ -17,11 +18,13 @@ Page({
   },
   toPick: function () {
     this.setData({
+      selecting:true,
       pick: true
     })
   },
   pickColor(e) {
     this.setData({
+      selecting:false,
       rgb: e.detail.color
     })
   },

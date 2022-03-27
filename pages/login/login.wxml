@@ -15,7 +15,7 @@
 </view>
 <view>
   <view><p class="lowerp">密码</p></view>
-  <view><input type="safe-password" name="password" class="lower" value="{{password}}" placeholder="联系我们以获取"/></view>
+  <view><input type="text" name="password" class="lower" value="{{password}}" placeholder="联系我们以获取"/></view>
 </view>
 <view class="main_button">
 <!-- <navigator url="../count/count"> -->

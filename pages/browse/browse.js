@@ -302,7 +302,20 @@ Page({
       this.autostorage()
     },
     autostorage:function(){
-      
+      // const alldata = getApp().getcollection()
+      // console.log("alldata",alldata)
+      // wx.setStorage({
+      //   key:"browse",
+      //   data:alldata,
+      //   success:function(){
+      //     wx.getStorage({
+      //       key:"browse",
+      //       success:function(res){
+      //         console.log(res.data)
+      //       }
+      //     })
+      //   }
+      // })
       var teamname = getApp().globalData.teamname
       console.log("刷新数据")
         wx.cloud.callFunction({

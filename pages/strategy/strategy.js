@@ -7,24 +7,30 @@ Page({
    */
   data: {
     isClear: false,
-    selecting:false,
     rgb: 'rgb(255,255,0)',
-    pick: false
+    pick: true
   },
   toClear:function(){
-    const ctx = wx.createCanvasContext('my-canvas')
-    ctx.clearRect(0, 0, 1500, 1000)
-    // console.log("a")
+    // const ctx = wx.createCanvasContext('my-canvas')
+    // ctx.clearRect(0, 0, 1500, 1000)
+    // // console.log("a")
+  // 清除画板
+    const query = wx.createSelectorQuery()
+    query.select("#c1.canvas")
+    query.exec((res) => {
+      console.log(res)
+            // const canvas = res[0].node
+            const ctx = canvas.getContext("2d")
+            ctx.clearRect(0,0,1500,1500)
+    })
   },
   toPick: function () {
     this.setData({
-      selecting:true,
       pick: true
     })
   },
-  pickColor(e) {
+  pickColor:function(e) {
     this.setData({
-      selecting:false,
       rgb: e.detail.color
     })
   },
@@ -90,5 +96,5 @@ onChangeColor(e) {
     this.setData({
       isClear: !this.data.isClear
     })
-  }
+  },
 })

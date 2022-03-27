@@ -4,10 +4,11 @@
 <canvas
   class='canvas'
   canvas-id='my-canvas' 
+  id="c1"
   disable-scroll='{{true}}'
   bindtouchstart='touchStart' 
   bindtouchmove='touchMove'
-  hidden="{{selecting}}">
+  hidden="{{!pick}}">
 </canvas>
 <view class="lower row">
 <!-- clear方法是擦除操作 -->

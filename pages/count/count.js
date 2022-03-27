@@ -155,6 +155,7 @@ Page({
       auto_if_out_line:e.detail.value.white_line,
       last_climb_stair:e.detail.value.climb,
       othertext:e.detail.value.othertext,
+      winorloss:e.detail.value.winorloss,
     })
     wx.setStorage({
       key:"whichmatch",

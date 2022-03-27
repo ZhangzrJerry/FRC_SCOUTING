@@ -1,0 +1,4 @@
+/* pages/item/item.wxss */
+.textholder{
+  border: blue 2px solid;
+}

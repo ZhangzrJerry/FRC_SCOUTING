@@ -1,0 +1,47 @@
+<!--pages/item/item.wxml-->
+<form catchsubmit="updatedata">
+    <input type="number" class="textholder" name="team_number" value="{{team_number}}"/>
+    <input type="text" class="textholder" name="whorecord" value="{{who_record}}"/>
+    <input type="number" class="textholder" name="match_code" value="{{match_code}}"/>
+  <view class="row" style="position:relative;left:8px;">
+    <radio-group bindchange="radioChange" name="match_type">
+    <view class="flex" style="position:relative;top:4px;left:10px">
+      <radio value="练习赛" checked="{{ife}}">练习赛</radio>
+      <radio value="资格赛" checked="{{ifq}}">资格赛</radio>
+      <radio value="淘汰赛" checked="{{ifz}}">淘汰赛</radio>
+    </view>
+    </radio-group>
+  </view>
+    <radio-group bindchange="radioChange" name="team_role">
+      <view>
+        <radio color="blue" value="b1" checked="{{by}}">blue1</radio>
+        <radio color="red" value="r1" checked="{{ry}}" style="left:4px;">red1</radio>
+      </view>
+      <view>
+        <radio color="blue" value="b2" checked="{{be}}">blue2</radio>
+        <radio color="red" value="r2" checked="{{re}}" style="left:4px;">red2</radio>
+      </view>
+      <view>
+        <radio color="blue" value="b3" checked="{{bs}}">blue3</radio>
+        <radio color="red" value="r3" checked="{{rs}}" style="left:4px;">red3</radio>
+      </view>
+    </radio-group>
+      <switch name="white_line" checked="{{auto_if_out_line}}" style="position:relative;top:18px;left:16px;"></switch>
+    <input type="number" name="auto_shoot_lower" value="{{auto_shoot_lower}}"/>
+    <input type="number" name="auto_shoot_upper" value="{{auto_shoot_upper}}"/>
+    <input type="number" name="tele_jikuu_times" value="{{tele_jikuu_times}}"/>
+    <input type="number" name="tele_shoot_lower" value="{{tele_shoot_lower}}"/>
+    <input type="number" name="tele_shoot_upper" value="{{tele_shoot_upper}}"/>
+    
+    <slider min="0" max="4" step="1" show-value="true" name="last_climb_stair" value="{{last_climb_stair}}" style="position:relative;left:10px;width:80%" class="bold"></slider>
+    
+    <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" value="{{othertext}}" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
+    
+    <radio-group name="winorloss">
+      <radio value="win" bindtap="turnwin" checked="{{ifwin}}">胜</radio>
+      <radio value="loss" bindtap="turnloss" checked="{{!ifloss}}">负</radio>
+      </radio-group>
+
+  <button bindtap="deletedata">删除</button>
+  <button form-type="submit">保存</button>
+</form>

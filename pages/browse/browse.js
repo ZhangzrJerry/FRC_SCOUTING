@@ -11,6 +11,60 @@ Page({
     // teamname:"0",
     teaminput:"",
     matchcode:"",
+    idmarker:"",
+    list:{
+      0:{
+        0:"练习赛",
+        1:"00",
+        2:"8811",
+        3:"b2",
+        4:true,
+        5:1,
+        6:5,
+        7:2,
+        8:0,
+        9:9,
+        10:4,
+        11:"win",
+        12:"othertext",
+        13:"张子睿",
+        14:"123124215311"
+      },
+      1:{
+        0:"淘汰赛",
+        1:"99",
+        2:"254",
+        3:"r3",
+        4:false,
+        5:1,
+        6:5,
+        7:2,
+        8:0,
+        9:9,
+        10:4,
+        11:"loss",
+        12:"othertext",
+        13:"彭越",
+        14:"123124215312"
+      },
+      2:{
+        0:"资格赛",
+        1:"99",
+        2:"6907",
+        3:"r1",
+        4:false,
+        5:1,
+        6:5,
+        7:2,
+        8:0,
+        9:9,
+        10:4,
+        11:"loss",
+        12:"othertext",
+        13:"北大还行",
+        14:"123124215313"
+      },
+    },
     // storage:{a:{},b:{}},
   },
 
@@ -45,7 +99,7 @@ Page({
     //   "teamname":teamname_local
     // })
     // console.log(this.data)
-    this.autostorage()
+    this.refresh()
   },
 
   /**
@@ -298,10 +352,8 @@ Page({
       //   }
       // })
     },
-    refresh:function(){
-      this.autostorage()
-    },
     autostorage:function(){
+      const that = this
       // const alldata = getApp().getcollection()
       // console.log("alldata",alldata)
       // wx.setStorage({
@@ -337,6 +389,16 @@ Page({
                   key:"browse",
                   success:function(res){
                     console.log("数据缓存成功",res.data)
+                    that.setData({
+                      list:res.data.reverse(),
+                    })
+                    // for(let i in res.data){
+                    //   var content = res.data[i]
+                    //   that.setData({
+                    //     list:list.concat(content)
+                    //   })
+                    // }
+                    console.log("页面数据",that.data.list)
                   }
                 })
               }
@@ -347,7 +409,14 @@ Page({
     // },
     refresh:function(){
       this.autostorage()
-    }
-    
-    
+    },
+    item_change:function(e){
+      console.log(e)
+      let itemid = e.currentTarget.dataset.itemid
+      console.log("itemid",itemid)
+      let targeturl = "../item/item?id=" + itemid.toString()
+      wx.navigateTo({
+        url: targeturl,
+      })
+    },
 })

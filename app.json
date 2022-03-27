@@ -9,7 +9,8 @@
     "pages/browse/browse",
     "pages/info/info",
     "pages/simulate/simulate",
-    "pages/strategy/strategy"
+    "pages/strategy/strategy",
+    "pages/item/item"
   ],
   "tabBar": {
     "selectedColor": "green",

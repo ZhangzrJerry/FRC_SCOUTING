@@ -12,6 +12,31 @@
     <button form-type="reset" size="mini">重置</button>
   </form>
     <button size="mini" bindtap="skipcontrast">对比</button>
-</view>
 <button bindtap="refresh">刷新</button>
 <button bindtap="cdb2excel">下载excel</button>
+</view>
+
+<view wx:for="{{list}}" wx:for-item="collection" style="border: purple 2px solid;">
+  <!-- 比赛类型 -->
+  <view>{{collection[0]}}</view>
+  <!-- 比赛代号 -->
+  <view>{{collection[1]}}</view>
+  <button data-itemid="{{collection[14]}}" bindtap="item_change">item</button>
+  <!-- 
+    0：比赛类型
+    1：比赛代号
+    2：队名
+    3*：场上角色 eg:r1、r2、r3、b1、b2、b3
+    4*：过白线
+    5：自动低球
+    6：自动高球
+    7：回机库次数
+    8：手动低球
+    9：手动高球
+    10：爬升高度
+    11：胜利/失败
+    12*：备注
+    13*：记录员
+    14*：id
+   -->
+</view>

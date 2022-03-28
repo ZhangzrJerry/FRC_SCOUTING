@@ -16,7 +16,7 @@
 <button bindtap="cdb2excel">下载excel</button>
 </view>
 
-<view wx:for="{{list}}" wx:for-item="collection" style="border: purple 2px solid;">
+<view wx:for="{{list}}" wx:for-item="collection" wx:if="{{ifexist}}" style="border: purple 2px solid;">
   <!-- 比赛类型 -->
   <view>{{collection[0]}}</view>
   <!-- 比赛代号 -->

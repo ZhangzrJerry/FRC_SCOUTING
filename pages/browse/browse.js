@@ -10,7 +10,7 @@ Page({
     zstatus:true,
     // teamname:"0",
     idmarker:"",
-    ifexist:[],
+    // ifexist:[],
     ifteam:false,
     iscode:false,
     inteam:"",
@@ -402,6 +402,7 @@ Page({
                     //   })
                     // }
                     console.log("页面数据",that.data.list)
+                    that.filter()
                   }
                 })
               }
@@ -413,34 +414,20 @@ Page({
     refresh:function(){
       this.autostorage()
     },
-    item_change:function(e){
-      console.log(e)
-      let itemid = e.currentTarget.dataset.itemid
-      console.log("itemid",itemid)
-      let targeturl = "../item/item?id=" + itemid.toString()
-      wx.navigateTo({
-        url: targeturl,
-      })
-    },
-    filter:function(e){
-      console.log(e)
-      this.setData({
-        ifteam: e.detail.value.targetteam!="" ? true : false,
-        inteam: e.detail.value.targetteam,
-        ifcode: e.detail.value.matchcode!="" ? true : false,
-        incode: e.detail.value.matchcode,
-        ifexist:[],
-      })
+    filter:function(){
       for(let i in this.data.list){
-        console.log(i)
         var temp = true
-        if(!this.data.ifteam){}
-        else if(this.data.list[i][2]==this.data.inteam){
-          temp = false
+        // console.log(this.data.ifteam)
+        if(this.data.ifteam===true){
+          if(this.data.list[i][2]!=this.data.inteam){
+          // console.log(this.data.list[i][2])
+            temp = false
+          }
         }
-        if(!this.data.ifcode){}
-        else if(this.data.list[i][1]==this.data.incode){
-          temp = false
+        if(this.data.ifcode===true){
+          if(this.data.list[i][1]!=this.data.incode){
+            temp = false
+          }
         }
         switch(this.data.list[i][0]){
           case "练习赛":
@@ -458,13 +445,13 @@ Page({
               temp = false
             }
         }
-        var jsonprev = this.data.ifexist
-        var jsontemp = [temp]
-        jsonprev = jsonprev.concat(temp)
+        var jsonprev = this.data.list[i]
+        jsonprev[15] = temp
+        // jsonprev = jsonprev.push(temp)
         console.log("jsonprev",jsonprev)
-        console.log("jsontemp",jsontemp)
+        // console.log("jsontemp",jsontemp)
         this.setData({
-          ifexist:jsonprev
+          [`list[${i}]`]:jsonprev
         })
       }
     }

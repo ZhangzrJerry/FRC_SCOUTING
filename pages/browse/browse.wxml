@@ -2,8 +2,8 @@
 <!-- 筛选框 -->
 <view style="border: 2px solid purple">
   <form catchsubmit="filter" catchreset="reset">
-    <input type="number" name="targetteam" value="{{teaminput}}" style="border: 2px solid grey;"/>
-    <input type="number" name="matchcode" value="{{matchcode}}" style="border: 2px solid grey;"/>
+    <input type="number" name="targetteam" bindinput="changeteam" style="border: 2px solid grey;"/>
+    <input type="number" name="matchcode" bindinput="changecode" style="border: 2px solid grey;"/>
     <!-- 别问我怎么想的value名字 -->
     <radio value="e" checked="{{estatus}}" bindtap="echange">练习赛</radio>
     <radio value="q" checked="{{qstatus}}" bindtap="qchange">资格赛</radio>
@@ -16,7 +16,7 @@
 <button bindtap="cdb2excel">下载excel</button>
 </view>
 
-<view wx:for="{{list}}" wx:for-item="collection" wx:if="{{ifexist}}" style="border: purple 2px solid;">
+<view wx:for="{{list}}" wx:for-item="collection" wx:if="{{collection[15]}}">
   <!-- 比赛类型 -->
   <view>{{collection[0]}}</view>
   <!-- 比赛代号 -->

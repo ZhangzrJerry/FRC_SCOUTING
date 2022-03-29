@@ -163,6 +163,9 @@ Page({
         wx.navigateBack({
           delta: 0,
         })
+      },
+      complete:function(res){
+        console.log(res)
       }
     })
   },

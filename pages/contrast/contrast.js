@@ -114,11 +114,37 @@ Page({
     })
   },
   get:function(e){
-    console.log(e)
-    console.log(e.currentTarget.dataset.number)
-    const db = wx.cloud.database()
-    db.collection(e.detail.value).get({
-      
+    const that = this
+    wx.getStorage({
+      key:"browse",
+      success:function(res){
+        var newjson ={tele_upper:0,tele_lower:0,auto_upper:0,auto_lower:0,jiku_times:0,last_climb:0,auto_white:0,win_percen:0,}
+        var counter = 0
+        for(let i in res.data){
+          if(res.data[i].team_number==e.detail.value){
+            counter+=1
+            newjson.tele_upper+=res.data[i].tele_shoot_upper
+            newjson.tele_lower+=res.data[i].tele_shoot_lower
+            newjson.jiku_times+=res.data[i].tele_jikuu_times
+            newjson.win_percen+=res.data[i].winorloss=="win"?1:0
+            newjson.last_climb+=res.data[i].last_climb_stair
+            newjson.auto_upper+=res.data[i].auto_shoot_upper
+            newjson.auto_lower+=res.data[i].auto_shoot_lower
+            newjson.auto_white+=res.data[i].auto_if_out_line
+          }
+        }
+        newjson.tele_upper/=counter
+        newjson.tele_lower/=counter
+        newjson.jiku_times/=counter
+        newjson.win_percen/=counter
+        newjson.last_climb/=counter
+        newjson.auto_upper/=counter
+        newjson.auto_lower/=counter
+        newjson.auto_white/=counter
+        that.setData({
+          [`teamdata[${e.currentTarget.dataset.number}]`]:newjson
+        })
+      }
     })
   }
 })

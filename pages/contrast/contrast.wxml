@@ -1,12 +1,19 @@
 <!--contrast/contrast.wxml-->
 <view class="biggest">
-<!-- 等我先学个自定义组件再来 -->
-  <!-- <view class="same">
-    <input type="number" bindinput="getA"/>
-    <view>{{}}</view>
+  <view>
+    <text>队号：\n胜率：\n过白线率：\n平均自动低球：\n平均自动高球：\n平均手动低球：\n平均手动高球：\n平均回航站楼次数：\n平均爬升高度</text>
   </view>
-  <view class="same">
-    <input type="number" bindinput="getB"/>
-  </view> -->功能正在开发，请耐心期待
+  <view class="same" wx:for="{{teamdata}}" wx:for-item="itemdata">
+    <input type="number" bindinput="get" data-number="{{itemdata.num_marker}}"/>
+    <view>{{itemdata.win_percen}}</view>
+    <view>{{itemdata.auto_white}}</view>
+    <view>{{itemdata.auto_lower}}</view>
+    <view>{{itemdata.auto_upper}}</view>
+    <view>{{itemdata.tele_lower}}</view>
+    <view>{{itemdata.tele_upper}}</view>
+    <view>{{itemdata.jiku_times}}</view>
+    <view>{{itemdata.last_climb}}</view>
+  </view>
 </view>
-
+<button bindtap="plus">增加</button>
+<button bindtap="minus">减少</button>

@@ -8,6 +8,7 @@ input{
   flex-direction: row;
   display: flex;
 }
-.same{
-  width: 50%;
+.biggest{
+  flex-direction: row;
+  display: flex;
 }

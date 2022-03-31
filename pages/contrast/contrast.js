@@ -5,6 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teamlist:2,
+    teamdata:[
+      { 
+        num_marker:0,
+        tele_upper:0,
+        tele_lower:0,
+        auto_upper:0,
+        auto_lower:0,
+        jiku_times:0,
+        last_climb:0,
+        auto_white:0,
+        win_percen:0,
+      },
+      {
+        num_marker:1,
+        tele_upper:0,
+        tele_lower:0,
+        auto_upper:0,
+        auto_lower:0,
+        jiku_times:0,
+        last_climb:0,
+        auto_white:0,
+        win_percen:0,
+      },
+    ]
   },
 
   /**
@@ -61,5 +86,39 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  plus:function(){
+    var prevjson = this.data.teamdata
+    var newjson = prevjson.concat({
+      num_marker:this.data.teamlist,
+      tele_upper:0,
+      tele_lower:0,
+      auto_upper:0,
+      auto_lower:0,
+      jiku_times:0,
+      last_climb:0,
+      auto_white:0,
+      win_percen:0,
+  })
+    this.setData({
+      teamdata:newjson,
+      teamlist:this.data.teamlist+1
+    })
+  },
+  minus:function(){
+    var prevjson = this.data.teamdata
+    prevjson.pop()
+    this.setData({
+      teamdata:prevjson,
+      teamlist:this.data.teamlist>1?this.data.teamlist-1:0
+    })
+  },
+  get:function(e){
+    console.log(e)
+    console.log(e.currentTarget.dataset.number)
+    const db = wx.cloud.database()
+    db.collection(e.detail.value).get({
+      
+    })
   }
 })

@@ -94,7 +94,12 @@ onChangeColor(e) {
   clear() {
     // 每次点击都变成相反的状态
     this.setData({
-      isClear: !this.data.isClear
+      isClear: true
     })
   },
+  toDraw(){
+    this.setData({
+      isClear:false
+    })
+  }
 })

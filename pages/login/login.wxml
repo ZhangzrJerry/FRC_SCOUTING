@@ -4,8 +4,8 @@
 </view>
 <view class="welcome">
 <view><h1>欢迎来到FRC赛场数据收集系统！</h1></view>
-<view><h1>公测期间限时  </h1><h1 class="bold">免密登录 </h1><h1> --8811</h1></view>
-<!-- <view><h1>请输入以下信息完成登录：</h1></view> -->
+<!-- <view><h1>公测期间限时  </h1><h1 class="bold">免密登录 </h1><h1> --8811</h1></view> -->
+<view><h1>请输入以下信息完成登录：</h1></view>
 </view>
 <view class="loginform">
 <form id="TeamLogin" catchsubmit="check_login">

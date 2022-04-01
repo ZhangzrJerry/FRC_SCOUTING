@@ -118,29 +118,32 @@ Page({
     wx.getStorage({
       key:"browse",
       success:function(res){
-        var newjson ={tele_upper:0,tele_lower:0,auto_upper:0,auto_lower:0,jiku_times:0,last_climb:0,auto_white:0,win_percen:0,}
+        // console.log(res.data[0])
+        var newjson ={num_marker:e.currentTarget.dataset.number,tele_upper:0,tele_lower:0,auto_upper:0,auto_lower:0,jiku_times:0,last_climb:0,auto_white:0,win_percen:0,}
         var counter = 0
         for(let i in res.data){
-          if(res.data[i].team_number==e.detail.value){
+          console.log(newjson)
+          if(res.data[i][2]==e.detail.value){
             counter+=1
-            newjson.tele_upper+=res.data[i].tele_shoot_upper
-            newjson.tele_lower+=res.data[i].tele_shoot_lower
-            newjson.jiku_times+=res.data[i].tele_jikuu_times
-            newjson.win_percen+=res.data[i].winorloss=="win"?1:0
-            newjson.last_climb+=res.data[i].last_climb_stair
-            newjson.auto_upper+=res.data[i].auto_shoot_upper
-            newjson.auto_lower+=res.data[i].auto_shoot_lower
-            newjson.auto_white+=res.data[i].auto_if_out_line
+            newjson.tele_upper+=res.data[i][9]
+            newjson.tele_lower+=res.data[i][8]
+            newjson.jiku_times+=res.data[i][7]
+            newjson.win_percen+=res.data[i][11]=="win"?1:0
+            newjson.last_climb+=res.data[i][10]
+            newjson.auto_upper+=res.data[i][6]
+            newjson.auto_lower+=res.data[i][5]
+            newjson.auto_white+=res.data[i][4]
           }
         }
-        newjson.tele_upper/=counter
-        newjson.tele_lower/=counter
-        newjson.jiku_times/=counter
-        newjson.win_percen/=counter
-        newjson.last_climb/=counter
-        newjson.auto_upper/=counter
-        newjson.auto_lower/=counter
-        newjson.auto_white/=counter
+        newjson.tele_upper=newjson.tele_upper/counter
+        newjson.tele_lower=newjson.tele_lower/counter
+        newjson.jiku_times=newjson.jiku_times/counter
+        newjson.win_percen=newjson.win_percen/counter
+        newjson.last_climb=newjson.last_climb/counter
+        newjson.auto_upper=newjson.auto_upper/counter
+        newjson.auto_lower=newjson.auto_lower/counter
+        newjson.auto_white=newjson.auto_white/counter
+        console.log(newjson)
         that.setData({
           [`teamdata[${e.currentTarget.dataset.number}]`]:newjson
         })

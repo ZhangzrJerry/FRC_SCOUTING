@@ -33,9 +33,9 @@ Page({
     // wx.switchTab({
     //   url: '../browse/browse',
     // })
-    wx.navigateTo({
-      url: '../contrast/contrast',
-    })
+    // wx.navigateTo({
+    //   url: '../contrast/contrast',
+    // })
   },
 
   /**

@@ -454,5 +454,14 @@ Page({
           [`list[${i}]`]:jsonprev
         })
       }
-    }
+    },
+    item_change:function(e){ 
+      console.log(e) 
+      let itemid = e.currentTarget.dataset.itemid 
+      console.log("itemid",itemid) 
+      let targeturl = "../item/item?id=" + itemid.toString() 
+      wx.navigateTo({ 
+        url: targeturl, 
+      }) 
+    }, 
 })

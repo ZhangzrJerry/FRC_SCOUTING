@@ -14,13 +14,10 @@
   bottom: 5%;
   left: 0px;
 }
-view{
-  border-color:white;
-  /* opacity: 0%; */
-  border-style: solid;
-  border-width:2px;
+.basinfo{
 }
-.basinfo,.row{
+/* row并排显示 */
+.row{
   display: flex;
   flex-direction: row;
 }

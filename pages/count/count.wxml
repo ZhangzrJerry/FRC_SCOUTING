@@ -1,67 +1,78 @@
 <!--pages/count/count.wxml-->
-<view class="tytle" style="font-size:25px;text-align:center;width:100%;font-weight:bold;">
-<text>赛场数据收集系统</text>
-</view>
+
+<!-- 标题 -->
+<view class="tytle" style="font-size:25px;text-align:center;width:100%;font-weight:bold;">赛场数据收集系统</view>
+
 <form action="aftersubmit" catchsubmit="SubmitAndUpload" catchreset="ResetAndReset">
-  <view class="basinfoposition"><view class="basinfo flex" style="border-radius:20px;border-color:black;border-width:2px;border-style:black;">
-  <view style="text-align:center;font-size:20px;">
-  基本信息
-  </view>
+
+<!-- 基本信息组件 -->
+<view class="basinfo flex">
+  <!-- 文字提示 -->
+  <view style="text-align:center;font-size:20px;">基本信息</view>
+  <!-- 三个大组件 -->
   <view class="row">
-  <view style="position:relative;left:8px;">
-  <view class="row" style="position:relative;top:8px;">
-    <text>队号</text>
-    <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="teamnum"/>
-  </view>
-  <view class="row" style="position:relative;top:8px;">
-    <text>记录</text>
-    <input type="text" class="textholder" placeholder="记录员" style="width:80px;position:relative;left:7px;top:1px;" name="whorecord"/>
-  </view>
-  <view class="row" style="position:relative;top:8px;">
-    <text>场次</text>
-    <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="match"/>
-  </view>
-  </view>
-  <view class="row" style="position:relative;left:8px;">
-    <radio-group bindchange="radioChange" name="match_type">
-    <view class="flex" style="position:relative;top:4px;left:10px">
-      <text style="text-align:center;">比赛类型</text>
-      <radio value="练习赛">练习赛</radio>
-      <radio value="资格赛">资格赛</radio>
-      <radio value="淘汰赛">淘汰赛</radio>
+    <!-- 三个输入框组合 -->
+    <view style="position:relative;left:8px;">
+      <!-- 队号&输入框组合 -->
+      <view class="row" style="position:relative;top:8px;">
+        <text>队号</text>
+        <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="teamnum"/>
+      </view>
+      <!-- 记录员&输入框组合 -->
+      <view class="row" style="position:relative;top:8px;">
+        <text>记录</text>
+        <input type="text" class="textholder" placeholder="记录员" style="width:80px;position:relative;left:7px;top:1px;" name="whorecord"/>
+      </view>
+      <!-- 场次&输入框组合 -->
+      <view class="row" style="position:relative;top:8px;">
+        <text>场次</text>
+        <input type="number" class="textholder" style="width:80px;position:relative;left:7px;top:1px;" name="match"/>
+      </view>
     </view>
-    </radio-group>
-  </view>
-  <view style="position:relative;left:18px;">
-    <radio-group bindchange="radioChange" name="team_role">
-      <view style="text-align:center;">队伍角色</view>
-      <view>
-        <radio color="blue" value="b1">blue1</radio>
-        <radio color="red" value="r1" style="left:4px;">red1</radio>
+    <!-- 比赛类型大组件 -->
+    <view class="row" style="position:relative;left:8px;">
+      <radio-group bindchange="radioChange" name="match_type">
+      <view class="flex" style="position:relative;top:4px;left:10px">
+        <text style="text-align:center;">比赛类型</text>
+        <radio value="练习赛">练习赛</radio>
+        <radio value="资格赛">资格赛</radio>
+        <radio value="淘汰赛">淘汰赛</radio>
       </view>
-      <view>
-        <radio color="blue" value="b2">blue2</radio>
-        <radio color="red" value="r2" style="left:4px;">red2</radio>
-      </view>
-      <view>
-        <radio color="blue" value="b3">blue3</radio>
-        <radio color="red" value="r3" style="left:4px;">red3</radio>
-      </view>
-    </radio-group>
+      </radio-group>
+    </view>
+    <!-- 队伍角色大组件 -->
+    <view style="position:relative;left:18px;">
+      <radio-group bindchange="radioChange" name="team_role">
+        <view style="text-align:center;">队伍角色</view>
+        <view>
+          <radio color="blue" value="b1">blue1</radio>
+          <radio color="red" value="r1" style="left:4px;">red1</radio>
+        </view>
+        <view>
+          <radio color="blue" value="b2">blue2</radio>
+          <radio color="red" value="r2" style="left:4px;">red2</radio>
+        </view>
+        <view>
+          <radio color="blue" value="b3">blue3</radio>
+          <radio color="red" value="r3" style="left:4px;">red3</radio>
+        </view>
+      </radio-group>
+    </view>
   </view>
-  </view>
-  </view></view>
-  <view class="autoset flex" style="border-color:black;border-width:2px;border-style:black;position:relative;top:2px;">
-  <view style="text-align:center;font-size:20px;">
-  <!-- <text> -->
-  自动阶段
-  <!-- </text> -->
-  </view>
+</view>
+
+<!-- 自动阶段大组件 -->
+<view class="autoset flex">
+  <!-- 文字提示 -->
+  <view style="text-align:center;font-size:20px;">自动阶段</view>
+  <!-- 并排放置 -->
   <view class="row">
+    <!-- 过线文字提示&按钮大组件 -->
     <view class="row"  style="position:relative;left:10px;width:100px;">
       <text style="position:relative;left:10px;top:22px;">过线</text>
       <switch name="white_line" style="position:relative;top:18px;left:16px;"></switch>
     </view>
+    <!-- 低球数量显示&加减按钮大组件 -->
     <view class="row" style="position:relative;left:4%">
       <view class="flex" style="position:relative;top:12px;">
         <text>低球数量</text>
@@ -72,6 +83,7 @@
         <button size="mini" type="default" bindtap="auto_lower_min">-</button>
       </view>
     </view>
+    <!-- 高球数量显示&加减按钮大组件 -->
     <view class="row" style="position:relative;left:4%">
       <view class="flex" style="position:relative;top:12px;">
         <text>高球数量</text>
@@ -83,12 +95,15 @@
       </view>
     </view>    
   </view>
-  </view>
-  <view class="teleset flex" style="border-color:black;border-width:2px;border-style:black;position:relative;top:4px;">
-  <view style="text-align:center;font-size:20px;">
-  手动阶段
-  </view>
+</view>
+
+<!-- 手动阶段大组件 -->
+<view class="teleset flex">
+  <!-- 文字提示 -->
+  <view style="text-align:center;font-size:20px;">手动阶段</view>
+  <!-- 并排放置 -->
   <view class="row">
+    <!-- 回航站楼显示&加减按钮大组件 -->
     <view class="row" style="position:relative;left:5px">
       <view class="flex" style="position:relative;top:3px;width:60px">
         <text style="width:70px;">回航站楼取球次数</text>
@@ -99,6 +114,7 @@
         <button size="mini" type="default" bindtap="tele_jikuu_min">-</button>
       </view>
     </view>
+    <!-- 低球数量显示&加减按钮大组件 -->
     <view class="row" style="position:relative;left:0%">
       <view class="flex" style="position:relative;top:12px;">
         <text>低球数量</text>
@@ -109,6 +125,7 @@
         <button size="mini" type="default" bindtap="tele_lower_min">-</button>
       </view>
     </view>
+    <!-- 高球数量显示&加减按钮大组件 -->
     <view class="row" style="position:relative;left:0%">
       <view class="flex" style="position:relative;top:12px;">
         <text>高球数量</text>
@@ -120,25 +137,31 @@
       </view>
     </view>  
   </view>
-  <view class="lastset">
+  <!-- 爬升文字&滑动条大组件 -->
+  <view class="climb row">
+    <text style="position:relative;left:5px;top:6px;">爬升</text>
+    <slider min="0" max="4" step="1" show-value="true" name="climb" style="position:relative;left:10px;width:80%" class="bold"></slider>
+  </view> 
+</view>
+<!-- 概述&胜负&按钮 -->
+<view class="finish">
+  <!-- 概述大组件 -->
+  <view class="othertext row">
+    <text style="position:relative;left:5px;top:20px;font-size:20px;">概述</text>
+    <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
   </view>
-    <view class="climb row">
-      <text style="position:relative;left:5px;top:6px;">爬升</text>
-      <slider min="0" max="4" step="1" show-value="true" name="climb" style="position:relative;left:10px;width:80%" class="bold"></slider>
-    </view></view>
-  <view class="finish">
-    <view class="othertext row">
-      <text style="position:relative;left:5px;top:20px;font-size:20px;">概述</text>
-      <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
-    </view>
-    <!-- 尚未有后台关于选中与否的逻辑，也可以更改为像过线那样的按钮之类的 -->
-    <radio-group name="winorloss">
-      <radio value="win">胜</radio>
-      <radio value="loss">负</radio>
-      </radio-group>
-    <view class="button" style="flex-direction:row;">
-      <button form-type="submit" type="primary" class="buttonleft">上传</button>
-      <button form-type="reset" type="default" class="buttonrght">重置</button>
-    </view>
+  <!-- 胜负 -->
+  <radio-group name="winorloss">
+    <radio value="win">胜</radio>
+    <radio value="loss">负</radio>
+  </radio-group>
+  <!-- 按钮组件 -->
+  <view class="button" style="flex-direction:row;">
+    <button form-type="submit" type="primary" class="buttonleft">上传</button>
+    <button form-type="reset" type="default" class="buttonrght">重置</button>
   </view>
+</view>
+
+
+
 </form>

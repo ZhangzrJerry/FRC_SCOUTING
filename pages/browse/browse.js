@@ -153,23 +153,31 @@ Page({
       zstatus:true,
       teaminput:"",
       matchcode:"",
+      ifteam:false,
+      ifcode:false,
+      inteam:0,
+      incode:0,
     })
+    this.filter()
     // this.search(true,0)
   },
   echange:function(){
     this.setData({
       estatus:!this.data.estatus
     })
+    this.filter()
   },
   qchange:function(){
     this.setData({
       qstatus:!this.data.qstatus
     })
+    this.filter()
   },
   zchange:function(){
     this.setData({
       zstatus:!this.data.zstatus
     })
+    this.filter()
   },
   // print:function(){
   //   // console.log(this.data.storage)
@@ -464,4 +472,18 @@ Page({
         url: targeturl, 
       }) 
     }, 
+    changeteam:function(e){
+      this.setData({
+        ifteam:e.detail.value?true:false,
+        inteam:e.detail.value
+      })
+      this.filter()
+    },
+    changecode:function(e){
+      this.setData({
+        ifcode:e.detail.value?true:false,
+        incode:e.detail.value
+      })
+      this.filter()
+    }
 })

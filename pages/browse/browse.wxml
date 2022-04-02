@@ -8,7 +8,7 @@
     <radio value="e" checked="{{estatus}}" bindtap="echange">练习赛</radio>
     <radio value="q" checked="{{qstatus}}" bindtap="qchange">资格赛</radio>
     <radio value="z" checked="{{zstatus}}" bindtap="zchange">淘汰赛</radio>
-    <button form-type="submit" size="mini">筛选</button>
+    <!-- <button form-type="submit" size="mini">筛选</button> -->
     <button form-type="reset" size="mini">重置</button>
   </form>
     <button size="mini" bindtap="skipcontrast">对比</button>

@@ -16,12 +16,16 @@
 }
 view{
   border-color:white;
+  /* opacity: 0%; */
   border-style: solid;
   border-width:2px;
 }
 .basinfo,.row{
   display: flex;
   flex-direction: row;
+}
+.basinfoposition{
+  margin-top: px;
 }
 .flex{
   display: flex;

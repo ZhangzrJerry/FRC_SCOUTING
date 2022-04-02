@@ -1,9 +1,9 @@
 <!--pages/count/count.wxml-->
 <view class="tytle" style="font-size:25px;text-align:center;width:100%;font-weight:bold;">
-<text>FRC2022赛场数据收集系统</text>
+<text>赛场数据收集系统</text>
 </view>
 <form action="aftersubmit" catchsubmit="SubmitAndUpload" catchreset="ResetAndReset">
-  <view class="basinfo flex" style="border-color:black;border-width:2px;border-style:black;">
+  <view class="basinfoposition"><view class="basinfo flex" style="border-radius:20px;border-color:black;border-width:2px;border-style:black;">
   <view style="text-align:center;font-size:20px;">
   基本信息
   </view>
@@ -50,7 +50,7 @@
     </radio-group>
   </view>
   </view>
-  </view>
+  </view></view>
   <view class="autoset flex" style="border-color:black;border-width:2px;border-style:black;position:relative;top:2px;">
   <view style="text-align:center;font-size:20px;">
   <!-- <text> -->

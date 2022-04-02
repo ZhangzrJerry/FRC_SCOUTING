@@ -25,7 +25,9 @@
       },
       {
         "pagePath": "pages/strategy/strategy",
-        "text": "Strategy"
+        "text": "Strategy",
+        "iconPath": "/images/strategy1.png",
+        "selectedIconPath": "/images/strategy2.png"
       },
       {
         "pagePath": "pages/count/count",

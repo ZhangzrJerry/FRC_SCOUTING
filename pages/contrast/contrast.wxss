@@ -8,7 +8,11 @@ input{
   flex-direction: row;
   display: flex;
 }
-.biggest{
+.tips{
+  width: 150rpx !important;
+}
+.data{
+  width: 600rpx;
   flex-direction: row;
   display: flex;
 }

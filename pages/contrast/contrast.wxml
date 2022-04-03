@@ -1,19 +1,23 @@
 <!--contrast/contrast.wxml-->
 <view class="biggest">
-  <view>
-    <text>队号：\n胜率：\n过白线率：\n平均自动低球：\n平均自动高球：\n平均手动低球：\n平均手动高球：\n平均回航站楼次数：\n平均爬升高度</text>
-  </view>
-  <view class="same" wx:for="{{teamdata}}" wx:for-item="itemdata">
-    <input type="number" bindinput="get" data-number="{{itemdata.num_marker}}"/>
-    <view>{{itemdata.win_percen}}</view>
-    <view>{{itemdata.auto_white}}</view>
-    <view>{{itemdata.auto_lower}}</view>
-    <view>{{itemdata.auto_upper}}</view>
-    <view>{{itemdata.tele_lower}}</view>
-    <view>{{itemdata.tele_upper}}</view>
-    <view>{{itemdata.jiku_times}}</view>
-    <view>{{itemdata.last_climb}}</view>
+  <view class="tips"><text>队号:\n队伍胜率:\n过白线率:\n自动射球:\n手动射球:\n犯规次数:\n爬升高度:\n平均得分:</text></view>
+  <view class="data">
+    <view class="same" wx:for="{{teamdata}}" wx:for-item="itemdata">
+      <input type="number" bindinput="get" data-number="{{itemdata.num_marker}}"/>
+      <view>{{itemdata.win_percen}}</view>
+      <view>{{itemdata.auto_white}}</view>
+      <!-- <view>{{itemdata.auto_lower}}</view>
+      <view>{{itemdata.auto_upper}}</view>
+      <view>{{itemdata.tele_lower}}</view>
+      <view>{{itemdata.tele_upper}}</view> -->
+      <view>{{itemdata.auto_shoot}}</view>
+      <view>{{itemdata.tele_shoot}}</view>
+      <view>{{itemdata.jiku_times}}</view>
+      <view>{{itemdata.last_climb}}</view>
+      <view>{{itemdata.team_score}}</view>
+    </view>
   </view>
 </view>
+
 <button bindtap="plus">增加</button>
 <button bindtap="minus">减少</button>

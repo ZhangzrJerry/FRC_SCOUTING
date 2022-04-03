@@ -17,6 +17,9 @@ Page({
         last_climb:0,
         auto_white:0,
         win_percen:0,
+        team_score:0,
+        auto_shoot:0,
+        tele_shoot:0,
       },
       {
         num_marker:1,
@@ -28,6 +31,9 @@ Page({
         last_climb:0,
         auto_white:0,
         win_percen:0,
+        team_score:0,
+        auto_shoot:0,
+        tele_shoot:0,
       },
     ]
   },
@@ -99,6 +105,9 @@ Page({
       last_climb:0,
       auto_white:0,
       win_percen:0,
+      team_score:0,
+      auto_shoot:0,
+      tele_shoot:0,
   })
     this.setData({
       teamdata:newjson,
@@ -119,7 +128,7 @@ Page({
       key:"browse",
       success:function(res){
         // console.log(res.data[0])
-        var newjson ={num_marker:e.currentTarget.dataset.number,tele_upper:0,tele_lower:0,auto_upper:0,auto_lower:0,jiku_times:0,last_climb:0,auto_white:0,win_percen:0,}
+        var newjson ={num_marker:e.currentTarget.dataset.number,tele_upper:0,tele_lower:0,auto_upper:0,auto_lower:0,jiku_times:0,last_climb:0,auto_white:0,win_percen:0,team_score:0,auto_shoot:0,tele_shoot:0,}
         var counter = 0
         for(let i in res.data){
           console.log(newjson)
@@ -133,6 +142,24 @@ Page({
             newjson.auto_upper+=res.data[i][6]
             newjson.auto_lower+=res.data[i][5]
             newjson.auto_white+=res.data[i][4]
+            newjson.auto_shoot+=(parseInt(newjson.auto_upper)+parseInt(newjson.auto_lower))
+            newjson.tele_shoot+=(parseInt(newjson.tele_upper)+parseInt(newjson.tele_lower))
+            newjson.team_score+=parseInt(newjson.auto_white==1?2:0)
+            newjson.team_score+=parseInt(newjson.tele_lower)+parseInt(newjson.tele_upper)*2+parseInt(newjson.auto_lower)*2+parseInt(newjson.auto_upper)*4
+            switch(newjson.last_climb){
+              case 1:
+                newjson.team_score+=parseInt(4)
+                break
+              case 2:
+                newjson.team_score+=parseInt(6)
+                break
+              case 3:
+                newjson.team_score+=parseInt(10)
+                break
+              case 4:
+                newjson.team_score+=parseInt(15)
+                break
+            }
           }
         }
         newjson.tele_upper=newjson.tele_upper/counter
@@ -143,11 +170,14 @@ Page({
         newjson.auto_upper=newjson.auto_upper/counter
         newjson.auto_lower=newjson.auto_lower/counter
         newjson.auto_white=newjson.auto_white/counter
+        newjson.team_score=newjson.team_score/counter
+        newjson.auto_shoot=newjson.auto_shoot/counter
+        newjson.tele_shoot=newjson.tele_shoot/counter
         console.log(newjson)
         that.setData({
           [`teamdata[${e.currentTarget.dataset.number}]`]:newjson
         })
       }
     })
-  }
+  },
 })

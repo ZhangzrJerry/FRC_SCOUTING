@@ -1,8 +1,13 @@
 /* pages/count/count.wxss */
 .textholder{
+	border-radius: 5px;
   border-style: solid;
   border-width: 2px;
-  border-color: grey;
+  border-color:rgb(255, 255, 255);
+  background-color: rgb(247, 247, 247);
+}
+.destext{
+	color: rgb(65, 65, 65);
 }
 .buttonrght{
   position: absolute;
@@ -14,20 +19,120 @@
   bottom: 5%;
   left: 0px;
 }
+.teleset{
+  box-shadow: 0px 0px 50px #f3f3f3;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0);
+	width: 95%;
+	/*box-shadow: 0px 5px 5px #b4b4b4;*/
+	margin: 15px auto;
+	height: fit-content;
+	padding-bottom: 10px;
+	overflow: scroll;
+}
+.finishset{
+	box-shadow: 0px 0px 50px #f3f3f3;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0);
+	width: 95%;
+	/*box-shadow: 0px 5px 5px #b4b4b4;*/
+	margin: 15px auto;
+	height: fit-content;
+	padding-bottom: 10px;
+	overflow: scroll;
+}
+.autoset{
+  box-shadow: 0px 0px 50px #f3f3f3;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0);
+	width: 95%;
+	/*box-shadow: 0px 5px 5px #b4b4b4;*/
+	margin: 15px auto;
+	height: fit-content;
+	padding-bottom: 10px;
+	overflow: scroll;
+}
 .basinfo{
+  box-shadow: 0px 0px 50px #f3f3f3;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0);
+	width: 95%;
+	/*box-shadow: 0px 5px 5px #b4b4b4;*/
+	margin: 20px auto;
+	height: 150px;
+	padding-bottom: 10px;
+	overflow: scroll;
 }
 /* row并排显示 */
 .row{
+	margin-left: 5px;
+	margin-top: 5px;
   display: flex;
   flex-direction: row;
+}
+.colum{
+		margin-left: 5px;
+		margin-top: 5px;
+	  display: flex;
+	  flex-direction:column;
 }
 .basinfoposition{
   margin-top: px;
 }
 .flex{
+	margin-top: 5px;
   display: flex;
   flex-direction: column;
+}
+.flex2{
+	margin-top: 3px;
+  display: flex;
+  flex-direction: row;
 }
 .bold{
   font-weight: bold;
 }
+/* 单选按钮样式*/
+radio .wx-radio-input {
+	width: 40rpx;
+	height: 40rpx;
+	border: 4rpx solid rgb(235, 235, 235);/* 外圈边框，默认灰色，即未选中状态*/
+	border-radius: 50%;
+	background: none;
+  }
+  /*单选按钮选中后内部样式*/
+radio .wx-radio-input.wx-radio-input-checked {
+	border: 4rpx solid #43c162 !important;/* 外圈边框，选中状态颜色*/
+	background-color: white !important;/* 外圈边框与内圈实心圆间的内容的颜色，不设置就默认是上面的绿色*/
+  }
+  /*单选按钮选中后内部中心*/
+radio .wx-radio-input.wx-radio-input-checked::before {
+	width: 60%;
+	height: 60%;
+	background: #43c162;/* 内圈实心圆选中状态颜色*/
+	border-radius: 50%;
+	content: '';/* 隐藏✔️*/
+	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* swtich整体大小 */
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+	width:90rpx !important;
+	height:45rpx !important;
+	background: #43c062 !important;
+	border: #ccc !important;
+  }
+  /*白色样式（false的样式）*/
+  .wx-switch-input::before{
+	width:90rpx !important;
+	height: 45rpx !important;
+  }
+  /* 中间的小圆球 */
+  /*绿色样式（true的样式）*/
+  .wx-switch-input::after{
+	width: 50rpx !important;
+	height: 45rpx !important;
+  }
+  

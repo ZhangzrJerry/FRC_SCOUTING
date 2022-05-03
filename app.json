@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/count/count",
     "pages/login/login",
     "pages/dialog/dialog",
     "pages/contact/contact",
-    "pages/count/count",
     "pages/upload/upload",
     "pages/contrast/contrast",
     "pages/browse/browse",

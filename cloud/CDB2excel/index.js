@@ -36,7 +36,7 @@ exports.main = async (event, context) => {
   // }
   // 2.格式化数据
   let alldata = []
-  let row = ["match_type","match_code","team_number","team_role","auto_if_out_line","auto_shoot_lower","auto_shoot_upper","tele_jikuu_times","tele_shoot_lower","tele_shoot_upper","last_climb_stair","winorloss","othertext","who_record","_id"]
+  let row = ["match_type","match_code","team_number","team_role","auto_if_out_line","auto_shoot_lower","auto_shoot_upper","tele_fangui_times","tele_shoot_lower","tele_shoot_upper","last_climb_stair","winorloss","othertext","who_record","_openid","_id"]
   if(event.CDBtype==true){
     alldata.push(row)  // 列名导入到数组中
     for(let i in tasks){

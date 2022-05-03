@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "window": {
+    "navigationBarBackgroundColor": "#f7f8fa",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "miniProgram",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  }
 }

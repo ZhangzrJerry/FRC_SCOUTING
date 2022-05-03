@@ -45,16 +45,16 @@
       <radio-group bindchange="radioChange" name="team_role">
         <!-- <view style="text-align:center;">队伍角色</view> -->
         <view class="row">
-          <radio class="destext" color="blue" value="b1">蓝1</radio>
-          <radio class="destext" color="red" value="r1" style="left:8px;">红1</radio>
+          <radio class="destext" class="blue" value="b1">蓝1</radio>
+          <radio class="destext" class="red" value="r1" style="left:8px;">红1</radio>
         </view>
         <view class="row">
-          <radio class="destext" color="blue" value="b2">蓝2</radio>
-          <radio class="destext" color="red" value="r2" style="left:8px;">红2</radio>
+          <radio class="destext" class="blue" value="b2">蓝2</radio>
+          <radio class="destext" class="red" value="r2" style="left:8px;">红2</radio>
         </view>
         <view class="row"> 
-          <radio class="destext" color="blue" value="b3">蓝3</radio>
-          <radio class="destext" color="red" value="r3" style="left:8px;">红3</radio>
+          <radio class="destext" class="blue" value="b3">蓝3</radio>
+          <radio class="destext" class="red" value="r3" style="left:8px;">红3</radio>
         </view>
       </radio-group>
     </view>
@@ -79,8 +79,8 @@
         <view style="text-align:center;" class="bold">{{auto_shoot_lower}}</view>
       </view>
       <view class="flex2" style="margin-top: 11px;">
-        <button size="mini" type="default" bindtap="auto_lower_add">+</button>
         <button size="mini" type="default" bindtap="auto_lower_min">-</button>
+        <button size="mini" type="default" bindtap="auto_lower_add">+</button>
       </view>
     </view>
     <!-- 高球数量显示&加减按钮大组件 -->
@@ -90,8 +90,8 @@
         <view style="text-align:center;" class="bold">{{auto_shoot_upper}}</view>
       </view>
       <view class="flex2" style="margin-top: 11px;">
-        <button size="mini" type="default" bindtap="auto_upper_add">+</button>
         <button size="mini" type="default" bindtap="auto_upper_min">-</button>
+        <button size="mini" type="default" bindtap="auto_upper_add">+</button>
       </view>
     </view>    
   </view>
@@ -106,12 +106,12 @@
     <!-- 回航站楼显示&加减按钮大组件 -->
     <view style="position:relative;left:10px">
       <view class="row" style="position:relative;top:3px;">
-        <text>取球数:</text>
+        <text>航站楼次数:</text>
         <view style="text-align:center;" class="bold">{{tele_jikuu_times}}</view>
       </view>
       <view class="flex2" style="margin-top: 10px;">
-        <button size="mini" type="default" bindtap="tele_jikuu_add">+</button>
         <button size="mini" type="default" bindtap="tele_jikuu_min">-</button>
+        <button size="mini" type="default" bindtap="tele_jikuu_add">+</button>
       </view>
     </view>
     <!-- 低球数量显示&加减按钮大组件 -->
@@ -121,8 +121,8 @@
         <view style="text-align:center;" class="bold">{{tele_shoot_lower}}</view>
       </view>
       <view class="flex2" style="margin-top: 10px;">
-        <button size="mini" type="default" bindtap="tele_lower_add">+</button>
         <button size="mini" type="default" bindtap="tele_lower_min">-</button>
+        <button size="mini" type="default" bindtap="tele_lower_add">+</button>
       </view>
     </view>
     <!-- 高球数量显示&加减按钮大组件 -->
@@ -132,8 +132,8 @@
         <view style="text-align:center;" class="bold">{{tele_shoot_upper}}</view>
       </view>
       <view class="flex2" style="margin-top: 10px;">
-        <button size="mini" type="default" bindtap="tele_upper_add">+</button>
         <button size="mini" type="default" bindtap="tele_upper_min">-</button>
+        <button size="mini" type="default" bindtap="tele_upper_add">+</button>
       </view>
     </view>  
   </view>

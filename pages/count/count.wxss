@@ -114,7 +114,20 @@ radio .wx-radio-input.wx-radio-input-checked::before {
 	content: '';/* 隐藏✔️*/
 	transform: translate(-50%, -50%) scale(1);
 	-webkit-transform: translate(-50%, -50%) scale(1);
-  }
+	}
+	.red .wx-radio-input.wx-radio-input-checked::before{
+		background: red !important;
+		border-color: red !important; 
+	}
+	.blue .wx-radio-input.wx-radio-input-checked::before{
+		background: blue !important;
+	}
+	.blue .wx-radio-input.wx-radio-input-checked{
+		border: 4rpx solid blue !important;/* 外圈边框，选中状态颜色*/
+	}	
+	.red .wx-radio-input.wx-radio-input-checked{
+		border-color: red !important; 
+	}
 
   /* swtich整体大小 */
 /*swtich整体大小及背景色*/

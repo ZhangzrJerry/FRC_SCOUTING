@@ -134,13 +134,13 @@ Page({
           console.log(newjson)
           if(res.data[i][2]==e.detail.value){
             counter+=1
-            newjson.tele_upper+=res.data[i][9]
-            newjson.tele_lower+=res.data[i][8]
-            newjson.jiku_times+=res.data[i][7]
+            newjson.tele_upper+=parseInt(res.data[i][9])
+            newjson.tele_lower+=parseInt(res.data[i][8])
+            newjson.jiku_times+=parseInt(res.data[i][7])
             newjson.win_percen+=res.data[i][11]=="win"?1:0
             newjson.last_climb+=res.data[i][10]
-            newjson.auto_upper+=res.data[i][6]
-            newjson.auto_lower+=res.data[i][5]
+            newjson.auto_upper+=parseInt(res.data[i][6])
+            newjson.auto_lower+=parseInt(res.data[i][5])
             newjson.auto_white+=res.data[i][4]
             newjson.auto_shoot+=(parseInt(newjson.auto_upper)+parseInt(newjson.auto_lower))
             newjson.tele_shoot+=(parseInt(newjson.tele_upper)+parseInt(newjson.tele_lower))

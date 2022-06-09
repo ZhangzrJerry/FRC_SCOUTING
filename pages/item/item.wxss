@@ -1,4 +1,67 @@
 /* pages/item/item.wxss */
 .textholder{
-  border: blue 2px solid;
+	border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color:rgb(255, 255, 255);
+  background-color: rgb(247, 247, 247);
 }
+.input{
+  border-radius: 10px;
+border-style: solid;
+border-width: 2px;
+border-color:rgb(255, 255, 255);
+background-color: rgb(247, 247, 247);
+margin-top: 5px;
+margin-right: 20px;
+margin-left: 20px;
+height: 30px;
+display: flex;
+flex-direction:row;
+}
+.row{
+	margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex{
+	margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+radio .wx-radio-input {
+	width: 40rpx;
+	height: 40rpx;
+	border: 4rpx solid rgb(235, 235, 235);/* 外圈边框，默认灰色，即未选中状态*/
+	border-radius: 50%;
+	background: none;
+  }
+  /*单选按钮选中后内部样式*/
+radio .wx-radio-input.wx-radio-input-checked {
+	border: 4rpx solid #43c162 !important;/* 外圈边框，选中状态颜色*/
+	background-color: white !important;/* 外圈边框与内圈实心圆间的内容的颜色，不设置就默认是上面的绿色*/
+  }
+  /*单选按钮选中后内部中心*/
+radio .wx-radio-input.wx-radio-input-checked::before {
+	width: 60%;
+	height: 60%;
+	background: #43c162;/* 内圈实心圆选中状态颜色*/
+	border-radius: 50%;
+	content: '';/* 隐藏✔️*/
+	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate(-50%, -50%) scale(1);
+	}
+	.red .wx-radio-input.wx-radio-input-checked::before{
+		background: red !important;
+		border-color: red !important; 
+	}
+	.blue .wx-radio-input.wx-radio-input-checked::before{
+		background: blue !important;
+	}
+	.blue .wx-radio-input.wx-radio-input-checked{
+		border: 4rpx solid blue !important;/* 外圈边框，选中状态颜色*/
+	}	
+	.red .wx-radio-input.wx-radio-input-checked{
+		border-color: red !important; 
+	}

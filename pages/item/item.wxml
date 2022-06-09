@@ -1,18 +1,49 @@
 <!--pages/item/item.wxml-->
 <form catchsubmit="updatedata">
-    <input type="number" class="textholder" name="team_number" value="{{team_number}}"/>
-    <input type="text" class="textholder" name="whorecord" value="{{who_record}}"/>
-    <input type="number" class="textholder" name="match_code" value="{{match_code}}"/>
-  <view class="row" style="position:relative;left:8px;">
-    <radio-group bindchange="radioChange" name="match_type">
-    <view class="flex" style="position:relative;top:4px;left:10px">
-      <radio value="练习赛" checked="{{ife}}">练习赛</radio>
-      <radio value="资格赛" checked="{{ifq}}">资格赛</radio>
-      <radio value="淘汰赛" checked="{{ifz}}">淘汰赛</radio>
-    </view>
-    </radio-group>
+<view style="display: flex;flex-direction: row;">
+<view style="margin-left:15px">
+  <view class="row">
+    <text style="color: rgb(65, 65, 65);margin-top: 8px;">队号</text>
+    <input type="number" class="input" name="team_number" value="{{team_number}}"/>
   </view>
-    <radio-group bindchange="radioChange" name="team_role">
+  <view class="row">
+    <text style="color: rgb(65, 65, 65);margin-top: 8px;">记录</text>
+    <input type="number" class="input" name="team_number" value="{{who_record}}"/>
+  </view>
+  <view class="row">
+    <text style="color: rgb(65, 65, 65);margin-top: 8px;">场次</text>
+    <input type="number" class="input" name="team_number" value="{{match_code}}"/>
+  </view></view>
+  <view class="row" style="margin-left:10px;">
+      <radio-group bindchange="radioChange" name="match_type">
+      <view class="flex" style="position:relative;top:4px;left:10px">
+        <!-- <text style="text-align:center;" class="destext">比赛类型</text> -->
+        <radio style="margin-top:10px;" value="练习赛" checked="{{ife}}">练习赛</radio></view>
+        <view class="flex" style="position:relative;top:4px;left:10px"> 
+          <radio  style="margin-top:5px;" value="资格赛" checked="{{ifq}}">资格赛</radio></view>
+        <view  class="flex" style="position:relative;top:4px;left:10px">
+            <radio style="margin-top:5px;" value="淘汰赛" checked="{{ifz}}">淘汰赛</radio></view>
+      
+      </radio-group>
+    </view></view>
+    <view style="margin-left: 80px;">
+      <radio-group bindchange="radioChange" name="team_role">
+        <!-- <view style="text-align:center;">队伍角色</view> -->
+        <view class="row" style="margin-top:10px">
+          <radio class="destext" checked="{{by}}" class="blue" value="b1">蓝1</radio>
+          <radio class="destext" checked="{{ry}}" class="red" value="r1" style="left: 72rpx; position: relative; top: 0rpx">红1</radio>
+        </view>
+        <view class="row" style="margin-top:10px">
+          <radio class="destext" checked="{{be}}" class="blue" value="b2">蓝2</radio>
+          <radio class="destext" checked="{{re}}" class="red" value="r2" style="left: 72rpx; position: relative; top: 0rpx">红2</radio>
+        </view>
+        <view class="row" style="margin-top:10px"> 
+          <radio class="destext" checked="{{bs}}" class="blue" value="b3">蓝3</radio>
+          <radio class="destext" checked="{{rs}}" class="red" value="r3" style="left: 72rpx; position: relative; top: 0rpx">红3</radio>
+        </view>
+      </radio-group>
+    </view>
+    <!-- <radio-group bindchange="radioChange" name="team_role">
       <view>
         <radio color="blue" value="b1" checked="{{by}}">blue1</radio>
         <radio color="red" value="r1" checked="{{ry}}" style="left:4px;">red1</radio>
@@ -25,23 +56,34 @@
         <radio color="blue" value="b3" checked="{{bs}}">blue3</radio>
         <radio color="red" value="r3" checked="{{rs}}" style="left:4px;">red3</radio>
       </view>
-    </radio-group>
-      <switch name="white_line" checked="{{auto_if_out_line}}" style="position:relative;top:18px;left:16px;"></switch>
-    <input type="number" name="auto_shoot_lower" value="{{auto_shoot_lower}}"/>
-    <input type="number" name="auto_shoot_upper" value="{{auto_shoot_upper}}"/>
-    <input type="number" name="tele_jikuu_times" value="{{tele_jikuu_times}}"/>
-    <input type="number" name="tele_shoot_lower" value="{{tele_shoot_lower}}"/>
-    <input type="number" name="tele_shoot_upper" value="{{tele_shoot_upper}}"/>
+    </radio-group> -->
+      <view style="position: relative; left: 104rpx; top: 85rpx">过白线</view>
+      <switch name="white_line" checked="{{auto_if_out_line}}" style="position: relative; top: 37rpx; left: 238rpx"></switch>
+    <input style="position: relative; left: 537rpx; top: -14rpx"  type="number" name="auto_shoot_lower" value="{{auto_shoot_lower}}"/>
+    <input style="position: relative; left: 238rpx; top: 40rpx"  type="number" name="auto_shoot_upper" value="{{auto_shoot_upper}}"/>
+    <input style="position: relative; left: 537rpx; top: -1rpx"  type="number" name="tele_jikuu_times" value="{{tele_jikuu_times}}"/>
+    <input style="position: relative; left: 238rpx; top: 41rpx"  type="number" name="tele_shoot_lower" value="{{tele_shoot_lower}}"/>
+    <input style="position: relative; left: 537rpx; top: -1rpx"  type="number" name="tele_shoot_upper" value="{{tele_shoot_upper}}"/>
     
-    <slider min="0" max="4" step="1" show-value="true" name="last_climb_stair" value="{{last_climb_stair}}" style="position:relative;left:10px;width:80%" class="bold"></slider>
+    <slider min="0" max="4" step="1" show-value="true" name="last_climb_stair" value="{{last_climb_stair}}" style="position: relative; left: 43rpx; width: 80%; top: 42rpx" class="bold"></slider>
     
-    <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" value="{{othertext}}" name="othertext" style="height: 60px;width: 83%;position:relative;left:14px;top:6px;"></textarea>
+    <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" value="{{othertext}}" name="othertext" style="height: 113rpx; width: 453rpx; position: relative; left: 222rpx; top: 113rpx; display: block; box-sizing: border-box"></textarea>
     
-    <radio-group name="winorloss">
+    <radio-group name="winorloss" style="display: flex;flex-direction:column;margin-left:30px">
       <radio value="win" bindtap="turnwin" checked="{{ifwin}}">胜</radio>
-      <radio value="loss" bindtap="turnloss" checked="{{!ifloss}}">负</radio>
+      <radio value="loss" bindtap="turnloss" style="margin-top:10px" checked="{{!ifloss}}">负</radio>
       </radio-group>
 
-  <button bindtap="deletedata">删除</button>
-  <button form-type="submit">保存</button>
+  <button bindtap="deletedata" style="position: relative; left: -188rpx; top: 36rpx">删除</button>
+  <button form-type="submit" style="position: relative; left: 162rpx; top: -36rpx">保存</button>
 </form>
+<text style="position: relative; left: 404rpx; top: -657rpx">自动低球</text>
+<text style="position: relative; left: -13rpx; top: -558rpx">自动高球</text>
+<text style="position: relative; left: 173rpx; top: -558rpx">违规次数</text>
+<text style="position: relative; left: -245rpx; top: -476rpx">手动低球</text>
+<text style="position: relative; left: -60rpx; top: -475rpx">手动高球</text>
+
+
+
+
+

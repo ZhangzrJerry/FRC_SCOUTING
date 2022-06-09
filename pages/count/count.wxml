@@ -151,9 +151,12 @@
     <text style="font-weight:bolder;font-size:20px;position:relative;left:14px;top:20px;">概述</text>
     <textarea placeholder="在这里输入更多的侦察信息..." class="textholder" name="othertext" style="height: 60px;width: 50%;position:relative;top:6px;left:40px"></textarea>
     <view style="flex-direction:column;display: flex;left:50px;position:relative;top:10px">
-    <radio value="win">胜</radio>
+    <radio-group name="winorloss">
+    <view>
+    <radio value="win">胜</radio></view><view>
     <radio value="loss">负</radio></view>
-  </view></view>
+    </radio-group>
+  </view></view></view>
   <!-- 胜负 -->
   <!-- <view style="margin: auto">
   <radio-group style="margin: auto" name="winorloss">
@@ -161,7 +164,7 @@
     <radio value="loss">负</radio>
   </radio-group></view> -->
   <!-- 按钮组件 -->
-  <view class="button" style="flex-direction:row;">
+  <view class="button" style="flex-direction:row;position: relative;top:50rpx">
     <button form-type="submit" type="primary" class="buttonleft" style="margin-left: 15px;">上传</button>
     <button form-type="reset" type="default" class="buttonrght" style="margin-right: 15px;">重置</button>
   </view>

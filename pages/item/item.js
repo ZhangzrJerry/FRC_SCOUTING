@@ -44,6 +44,7 @@ Page({
     const db = wx.cloud.database()
     db.collection(getApp().globalData.teamname).doc(this.data.id).get({
       success:function(res){
+        console.log(res)
         that.setData({
           team_number:res.data.team_number,
           team_role:res.data.team_role,
@@ -100,6 +101,9 @@ Page({
             that.setData({ifz:true})
             break
         }
+        console.log("数据设置成功")
+      },failed:function() {
+        console.log("失败")
       }
     })
     console.log("数据设置完成",this.data)

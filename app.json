@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/upload/upload",
     "pages/count/count",
     "pages/dialog/dialog",
     "pages/contact/contact",
-    "pages/upload/upload",
     "pages/contrast/contrast",
     "pages/browse/browse",
     "pages/info/info",

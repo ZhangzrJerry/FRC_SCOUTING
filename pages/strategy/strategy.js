@@ -8,7 +8,7 @@ Page({
   data: {
     isClear: false,
     rgb: 'rgb(255,255,0)',
-    pick: true
+    pick: true,
   },
   toClear:function(){
     // const ctx = wx.createCanvasContext('my-canvas')
@@ -34,11 +34,6 @@ Page({
       rgb: e.detail.color
     })
   },
-  toMore() {
-    wx.navigateToMiniProgram({
-      appId: 'wx56ff4f457b23ebd1',
-    })
-  },
   onLoad() {
     // 获取画布上下文
     this.context = wx.createCanvasContext('my-canvas');  // 参数必须和canvas组件中canvas-id值相同
@@ -47,7 +42,7 @@ Page({
 onChangeColor(e) {
     //返回的信息在e.detail.colorData中
     this.setData({
-      colorData: e.detail.colorData
+      rgb: e.detail.colorData
     })
   },
 

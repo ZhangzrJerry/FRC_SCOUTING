@@ -1,6 +1,6 @@
 <!-- wxml布局 -->
 
-<image src="../../images/field.png"></image>
+<image src="../../images/field.png" style="height: 1178rpx; width: 750rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
 <canvas
   class='canvas'
   canvas-id='my-canvas' 
@@ -8,7 +8,8 @@
   disable-scroll='{{true}}'
   bindtouchstart='touchStart' 
   bindtouchmove='touchMove'
-  hidden="{{!pick}}">
+  hidden="{{!pick}}"
+  >
 </canvas>
 <view class="lower row">
 <view class='rubber' bindtap='clear' hover-class='change'>擦除</view>
@@ -16,8 +17,8 @@
 <!-- 应该可以再加个保存图片按钮把图片保存下来，方便复盘战术 -->
 <!-- rgb预览器 -->
   <!-- <view style="background:{{rgb}};" bindtap="toPick" class="color-block">{{rgb}}</view> -->
-  <view bindtap="toDraw">画笔</view>
-  <view bindtap="toPick">调色</view>
+  <view class="rubber" bindtap="toDraw" style="margin-left: 25rpx;margin-right: 25rpx;">画笔</view>
+  <view class="rubber" bindtap="toPick">调色</view>
   <!-- <view bindtap="toClear">清空</view> -->
 </view>
   <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />

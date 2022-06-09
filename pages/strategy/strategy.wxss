@@ -36,15 +36,22 @@ image{
   position: absolute;
   top: 0px;
   width: 750rpx;
-  height: 1200rpx;
+  height: 900rpx;
 }
 .lower{
-  position: absolute;
-  height: 50rpx;
-  top: 1220rpx;
+  position: relative;
+  height: 60rpx;
+  top: 1200rpx;
+  width:350rpx;
+  left: 200rpx;
 }
 .rubber{
   border: gray solid 2px;
+  border-radius: 10rpx;
+  width: 100rpx;
+  text-align: center;
+  font-size: 35rpx;
+  font-weight: bolder;
 }
 .change{
   font-weight: bolder;

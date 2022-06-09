@@ -25,20 +25,20 @@
 <view class="basinfo" style="display: flex;flex-direction: column;" wx:for="{{list}}" wx:for-item="collection" wx:if="{{collection[15]}}">
   <!-- 比赛类型 -->
   <view style="display: flex;flex-direction: row;">
-  <view style="font-weight:bolder;margin-left:20px;margin-top:10px;font-size:20px;">{{collection[0]}}</view> <view style="margin-top:15px;margin-left:5px;color: rgb(73, 73, 73);">{{collection[2]}}</view>
+  <view style="font-weight:bolder;margin-left:20px;margin-top:10px;font-size:20px;">{{collection[0]}}</view> <view style="margin-top:15px;margin-left:5px;color: rgb(73, 73, 73);">{{collection[2]}}  {{collection[11]}}</view>
   <button form-type="reset" type="default" size="mini" data-itemid="{{collection[14]}}" bindtap="item_change" style="margin-top:10px;margin-right: 20px;">查看详细</button>
   <!-- 比赛代号 --></view>
   <view style="display: flex;flex-direction: row;margin-top: 10px;">
   <!-- <view style="margin-left:20px;">{{collection[2]}}{{collection[11]}}</view> -->
-  <view style="margin-left:20px;">{{collection[11]}}</view>
+  <!-- <view style="margin-left:20px;">{{collection[11]}}</view> -->
   <view style="margin-left:12px;"><text style="font-weight:bolder">自动高球:</text>{{collection[6]}}</view>
   <view style="margin-left:12px;"><text style="font-weight:bolder">手动高球:</text>{{collection[9]}}</view>
   <view style="margin-left:12px;"><text style="font-weight:bolder">爬升高度:</text>{{collection[10]}}</view></view>
   
   <view style="display: flex;flex-direction: row;margin-top: 10px;">
-  <view style="margin-left:20px;"><text style="font-weight:bolder">记录:</text>{{collection[13]}}</view>
   <view style="margin-left:12px;"><text style="font-weight:bolder">自动低球:</text>{{collection[5]}}</view>
   <view style="margin-left:12px;"><text style="font-weight:bolder">手动低球:</text>{{collection[8]}}</view>
+  <view style="margin-left:20px;"><text style="font-weight:bolder">记录:</text>{{collection[13]}}</view>
   </view></view>
   <!-- 
     0：比赛类型

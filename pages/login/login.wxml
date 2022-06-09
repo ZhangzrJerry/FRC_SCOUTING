@@ -29,8 +29,8 @@
 </view>
 
 <view class="othertext">
-  <view wx:if="{{alertteam}}" class="alertteamname"><text class="alert">该队号未在此系统注册</text></view>
-  <view wx:if="{{alertpass}}" class="alertpassword"><text class="alert">密码输入错误，请重试</text></view>
+  <!-- <view wx:if="{{alertteam}}" class="alertteamname"><text class="alert">该队号未在此系统注册</text></view>
+  <view wx:if="{{alertpass}}" class="alertpassword"><text class="alert">密码输入错误，请重试</text></view> -->
   <text>出品：FRC8811-义忠仁团队\n研发：FRC8811-义忠仁团队</text>  
 </view>
 <!-- <view>

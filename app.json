@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/count/count",
     "pages/login/login",
+    "pages/count/count",
     "pages/dialog/dialog",
     "pages/contact/contact",
     "pages/upload/upload",

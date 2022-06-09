@@ -115,7 +115,7 @@
       </view>
     </view>
     <!-- 低球数量显示&加减按钮大组件 -->
-    <view style="position:relative;width:170rpx;left: 75rpx;">
+    <view style="position:relative;width:170rpx;left: 85rpx;">
       <view class="row" style="position:relative;top:3px;">
         <text>低球数量:</text>
         <view style="text-align:center;" class="bold">{{tele_shoot_lower}}</view>

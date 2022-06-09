@@ -1,27 +1,44 @@
 <!--pages/browse/browse.wxml-->
 <!-- 筛选框 -->
-<view style="border: 2px solid purple">
+<view>
   <form catchsubmit="filter" catchreset="reset">
-    <input type="number" name="targetteam" bindinput="changeteam" style="border: 2px solid grey;"/>
-    <input type="number" name="matchcode" bindinput="changecode" style="border: 2px solid grey;"/>
+    <view style="display: flex;flex-direction:row">
+    <input type="number" name="targetteam" bindinput="changeteam" class="numinput"/>
+    <input type="number" name="matchcode" bindinput="changecode" class="numinput"/>
+    </view>
     <!-- 别问我怎么想的value名字 -->
+    <view style="display: flex;margin-left:30px;margin-top:20px;flex-direction: row;">
     <radio value="e" checked="{{estatus}}" bindtap="echange">练习赛</radio>
     <radio value="q" checked="{{qstatus}}" bindtap="qchange">资格赛</radio>
     <radio value="z" checked="{{zstatus}}" bindtap="zchange">淘汰赛</radio>
+    <button form-type="submit" type="primary" size="mini" style="margin-left: 10px">重置</button>
+    <button form-type="reset" type="default" size="mini" bindtap="skipcontrast" style="margin-left: auto">对比</button>
+    </view>
     <!-- <button form-type="submit" size="mini">筛选</button> -->
-    <button form-type="reset" size="mini">重置</button>
+    
   </form>
-    <button size="mini" bindtap="skipcontrast">对比</button>
-<button bindtap="refresh">刷新</button>
-<button bindtap="cdb2excel">下载excel</button>
+    <view style="display: flex;flex-direction:row;margin-top:10px;text-align: center;">
+<button bindtap="refresh" >刷新</button>
+<button bindtap="cdb2excel" >导出</button></view>
 </view>
 
-<view wx:for="{{list}}" wx:for-item="collection" wx:if="{{collection[15]}}">
+<view class="basinfo" style="display: flex;flex-direction: column;" wx:for="{{list}}" wx:for-item="collection" wx:if="{{collection[15]}}">
   <!-- 比赛类型 -->
-  <view>{{collection[0]}}</view>
-  <!-- 比赛代号 -->
-  <view>{{collection[1]}}</view>
-  <button data-itemid="{{collection[14]}}" bindtap="item_change">item</button>
+  <view style="display: flex;flex-direction: row;">
+  <view style="font-weight:bolder;margin-left:20px;margin-top:10px;font-size:20px;">{{collection[0]}}</view> <view style="margin-top:15px;margin-left:5px;color: rgb(73, 73, 73);">{{collection[1]}}</view>
+  <button form-type="reset" type="default" size="mini" data-itemid="{{collection[14]}}" bindtap="item_change" style="margin-top:10px;margin-right: 20px;">查看详细</button>
+  <!-- 比赛代号 --></view>
+  <view style="display: flex;flex-direction: row;margin-top: 10px;">
+  <view style="margin-left:20px;">{{collection[0]}}{{collection[11]}}</view>
+  <view style="margin-left:12px;"><text style="font-weight:bolder">手动低球:</text>{{collection[8]}}</view>
+  <view style="margin-left:12px;"><text style="font-weight:bolder">手动高球:</text>{{collection[9]}}</view>
+  <view style="margin-left:12px;"><text style="font-weight:bolder">爬升高度:</text>{{collection[10]}}</view></view>
+  
+  <view style="display: flex;flex-direction: row;margin-top: 10px;">
+  <view style="margin-left:20px;"><text style="font-weight:bolder">记录:</text>{{collection[13]}}</view>
+  <view style="margin-left:12px;"><text style="font-weight:bolder">自动低球:</text>{{collection[5]}}</view>
+  <view style="margin-left:12px;"><text style="font-weight:bolder">自动高球:</text>{{collection[6]}}</view>
+  </view></view>
   <!-- 
     0：比赛类型
     1：比赛代号
@@ -39,4 +56,4 @@
     13*：记录员
     14*：id
    -->
-</view>
+

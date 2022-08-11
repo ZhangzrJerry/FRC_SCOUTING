@@ -19,31 +19,31 @@
     "list": [
       {
         "pagePath": "pages/simulate/simulate",
-        "text": "Simulate",
+        "text": "模拟",
         "iconPath": "/images/simulate1.png",
         "selectedIconPath": "/images/simulate2.png"
       },
       {
         "pagePath": "pages/strategy/strategy",
-        "text": "Strategy",
+        "text": "策略",
         "iconPath": "/images/strategy1.png",
         "selectedIconPath": "/images/strategy2.png"
       },
       {
         "pagePath": "pages/count/count",
-        "text": "Scout",
+        "text": "侦察",
         "iconPath": "/images/scout1.png",
         "selectedIconPath": "/images/scout2.png"
       },
       {
         "pagePath": "pages/browse/browse",
-        "text": "Browse",
+        "text": "浏览",
         "iconPath": "/images/browse1.png",
         "selectedIconPath": "/images/browse2.png"
       },
       {
         "pagePath": "pages/info/info",
-        "text": "Info",
+        "text": "信息",
         "iconPath": "/images/info1.png",
         "selectedIconPath": "/images/info2.png"
       }
@@ -52,7 +52,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "FRC数据收集系统",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

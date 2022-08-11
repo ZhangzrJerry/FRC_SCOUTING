@@ -86,6 +86,13 @@ Page({
       alertpass:false,
     })
     const db = wx.cloud.database()
+    wx.cloud.callFunction({
+      name='LoginCheck',
+      data={
+        teamname:event.detail.value.teamname,
+        password:event.detail.value.password
+      }
+    })
     db.collection("userset").doc(event.detail.value.teamname).get({
       success:function(res){
         console.log("success_query")

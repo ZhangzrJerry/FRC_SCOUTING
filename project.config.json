@@ -43,5 +43,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "appid": "wxc145d2ede1e22a64",
+  "projectname": "develop",
   "condition": {}
 }

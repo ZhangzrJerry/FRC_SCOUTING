@@ -87,76 +87,17 @@ Page({
     })
     const db = wx.cloud.database()
     wx.cloud.callFunction({
-      name='LoginCheck',
-      data={
+      name:'LoginCheck',
+      data:{
         teamname:event.detail.value.teamname,
         password:event.detail.value.password
-      }
-    })
-    db.collection("userset").doc(event.detail.value.teamname).get({
-      success:function(res){
-        console.log("success_query")
-        if(res.data.password==event.detail.value.password){
-          console.log("success_login")
-          wx.setStorage({
-            key:"teamname",
-            data:event.detail.value.teamname
-          })
-          wx.setStorage({
-            key:"password",
-            data:event.detail.value.password
-          })
-          wx.getStorage({
-            key:"teamname",
-            success(res){
-              console.log("getStorage",res)
-              getApp().globalData.teamname = res.data
-            }
-          })
-          wx.switchTab({
-            url: '../count/count',
-          })
-        }else{
-          console.log("fail_login")
-          wx.showToast({
-            icon:"error",
-            title: '密码错误'
-          })
-        }
       },
-      fail:function(){
-        console.log("fail_query")
-        wx.showToast({
-          icon:"error",
-          title: '队号未注册',
-        })
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(11)
       }
     })
-    // console.log("callfunction")
-    
-  
-    // var after_trans = new Array(event.detail.value.teamname.length)
-    // for(var i=0;i<event.detail.value.teamname.length;i++){
-    //   after_trans[i] = this.data.ITOC[event.detail.value.teamname[i]]
-    // }
-    // var after_after_trans = after_trans.join("")
-    // // console.log(after_after_trans)
-    // // console.log(this.data[after_after_trans])
-    // if(this.data.hasOwnProperty(after_after_trans)){
-    //   if(this.data[after_after_trans]==event.detail.value.password){
-    //     // wx.redirectTo({url: '../count/count'})
-    //   wx.switchTab({
-    //     url: '../count/count',
-    //   })
-    //   }else{
-    //     this.setData({
-    //       alertpass:true
-    //     })
-    //   }
-    // }else{
-    //   this.setData({
-    //     alertteam:true
-    //   })
-    // }
   }
 })

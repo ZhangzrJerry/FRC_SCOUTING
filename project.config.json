@@ -1,9 +1,6 @@
 {
   "cloudfunctionRoot": "cloud/",
   "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
   "setting": {
     "urlCheck": false,
     "es6": true,
@@ -24,8 +21,6 @@
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -42,8 +37,18 @@
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true
   },
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {},
+  "compileType": "miniprogram",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "libVersion": "2.25.2",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "appid": "wxc145d2ede1e22a64",
-  "projectname": "develop",
-  "condition": {}
+  "projectname": "develop"
 }

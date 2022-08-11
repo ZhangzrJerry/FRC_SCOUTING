@@ -80,10 +80,21 @@ Page({
 
   },
   check_login(event) {
-    console.log(event)
-    this.setData({
-      alertteam:false,
-      alertpass:false,
+    console.log(event)          
+    wx.setStorage({
+      key:"teamname",
+      data:event.detail.value.teamname
+    })
+    wx.setStorage({
+      key:"password",
+      data:event.detail.value.password
+    })
+    wx.getStorage({
+      key:"teamname",
+      success(res){
+        console.log("getStorage",res)
+        getApp().globalData.teamname = res.data
+      }
     })
     const db = wx.cloud.database()
     wx.cloud.callFunction({
@@ -94,9 +105,25 @@ Page({
       },
       success:function(res){
         console.log(res)
+        if(res.result=='success'){
+          wx.showToast({
+            title: '登录成功',
+          })
+          wx.switchTab({
+            url: '../count/count',
+          })
+        }else{
+          wx.showToast({
+            title: '密码错误',
+            icon:'error'
+          })
+        }
       },
       fail:function(res){
-        console.log(11)
+        wx.showToast({
+          title: '查询失败',
+          icon:'error'
+        })
       }
     })
   }
